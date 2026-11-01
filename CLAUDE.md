@@ -42,20 +42,25 @@ file is the *execution* rules, that doc is the *strategy*. Keep both in sync.
 
 ## Cadence target
 
-**3 new videos a week, public, across the two channels combined** (split roughly evenly
-while both are being tested — e.g. 2 Forgotten & Found + 1 Sleepy Meadow one week, flip
-the next). This is Katie's instruction as of Nov 1, 2026. If she meant 3 *each* instead
-of 3 *combined*, that changes the production load significantly — confirm before scaling
-the pipeline further.
+**2 new videos a week per channel, public — 4 total across Forgotten & Found and
+Sleepy Meadow combined.** Confirmed by Katie on Nov 1, 2026 (originally stated as "3 a
+week" and clarified to 2 each). This roughly doubles the per-channel production load
+compared to the earlier "3 combined" draft — worth watching that Piper/Canva/ffmpeg
+generation time and any Higgsfield fallback spend still comfortably support 2/week per
+channel before pushing further.
 
 - **Floor:** never drop below 1/week per active channel — research (vidIQ, 10M+ channel
   study) shows under-1/month channels barely grow at all, while ~weekly is the first
-  tier with real traction.
+  tier with real traction. 2/week is comfortably above this floor for both channels.
 - **Timing:** publish weekday afternoons, 2–4 PM Eastern, Wednesday performs best for
   long-form. Publish 1–2 hours before the actual audience peak so YouTube can index
   first. (Matters more once a channel is past ~10K subs — below that, consistency beats
   precision.)
-- **Suggested slot pattern once at 3/week:** Mon / Wed / Fri afternoons.
+- **Suggested slot pattern at 2/week per channel:** each channel posts afternoons on
+  two of Mon / Wed / Fri, staggered so Forgotten & Found and Sleepy Meadow don't both
+  land the same day — e.g. Forgotten & Found on Mon/Thu, Sleepy Meadow on Tue/Fri —
+  which also spreads production load across the week instead of batching 4 videos into
+  2 days.
 
 ## Production pipeline (per video)
 
@@ -130,7 +135,6 @@ the pipeline further.
   this early test phase, but before scaling to 3x/week long-term, consider whether
   Sleepy Meadow should move to its own branded channel — mixing audiences can hurt both
   channels' recommendation targeting.
-- **Confirm "3 a week" is combined, not 3 each** (see Cadence section above).
 - **Flipping an already-published video's privacy (private → public)** has no
   documented safe API path through Postiz — do it manually in YouTube Studio
   (Content → privacy dropdown). Don't guess at the API here; a wrong call risks
