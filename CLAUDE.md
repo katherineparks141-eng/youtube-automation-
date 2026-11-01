@@ -139,6 +139,33 @@ automated run gets her yes, and this project uses it instead of a chat-only appr
    done without having actually published (or, if the attempt failed, without saying so
    in `result`).
 
+## Analytics report (views, followers, spend, profit)
+
+Katie asked for this to live on the Katie HQ dashboard (Nov 1, 2026), not in a separate
+report. It's read-only reporting — no approval needed to refresh it.
+
+- **Numbers:** `ArtifactData` `get`, collection `dashboard`, doc_id `youtube-analytics`,
+  on https://claude.ai/artifact/KPm8DRRk9RrVT9JH3YtcQL. Fields: `views` (sum of per-post
+  views), `subscribersNetChange` (gained − lost; Postiz has no absolute subscriber-count
+  endpoint — check YouTube Studio for the real total), `spendUsd`, `revenueUsd`,
+  `profitUsd`, `monetized`, `perVideo[]` (title/channel/postId/views/likes/comments).
+- **Source of the numbers:**
+  - Per-video views/likes/comments: `python3 ~/katie-hq/shared/postiz.py analytics --post <postId> --days 30` (one call per published video; postIds are in each channel's `posts/*.json` after publish).
+  - Channel-level (minutes watched, subscribers gained/lost, average view %):
+    `python3 ~/katie-hq/shared/postiz.py analytics --integration cmvy6plen09q6nk0750rg2fha --days 30`.
+  - Spend: $0 as long as the pipeline stays on free Piper + Canva + ffmpeg + Runway's
+    free-tier image credits (see "Open items"). If that ever changes (a paid plan, a
+    credit purchase), log the real dollar amount here — never guess.
+  - Revenue/profit: $0 until the channel is monetized (YouTube Partner Program: 1,000
+    subscribers + 4,000 public watch hours, or the Shorts equivalent, in the trailing 12
+    months). Once monetized, pull AdSense revenue the same way other revenue numbers get
+    confirmed elsewhere in Katie HQ — never estimate it.
+- **Refresh:** every scheduled production run (`STEP 1.5` in the routine) re-pulls these
+  numbers and `update`s the `youtube-analytics` doc, then updates the one-line `line`
+  field on the `youtube` project card in `dashboard/current`.projects[] (so it shows on
+  the main Projects tab without needing a separate report) and mirrors the same two
+  writes into `~/katie-hq/shared/dashboard.json`.
+
 ## Packaging rules (titles, thumbnails, hashtags, tags, captions)
 
 - **Title + thumbnail must not repeat each other.** Thumbnail carries the emotional
