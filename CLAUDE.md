@@ -51,8 +51,7 @@ file is the *execution* rules, that doc is the *strategy*. Keep both in sync.
 Sleepy Meadow combined.** Confirmed by Katie on Nov 1, 2026 (originally stated as "3 a
 week" and clarified to 2 each). This roughly doubles the per-channel production load
 compared to the earlier "3 combined" draft — worth watching that Piper/Canva/ffmpeg
-generation time and any Higgsfield fallback spend still comfortably support 2/week per
-channel before pushing further.
+generation time still comfortably supports 2/week per channel before pushing further.
 
 - **Floor:** never drop below 1/week per active channel — research (vidIQ, 10M+ channel
   study) shows under-1/month channels barely grow at all, while ~weekly is the first
