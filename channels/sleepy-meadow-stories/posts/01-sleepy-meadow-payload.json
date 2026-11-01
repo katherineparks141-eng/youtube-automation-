@@ -1,0 +1,28 @@
+{
+  "type": "now",
+  "date": "2026-11-01T18:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "A gentle original bedtime story about a bunny named Pip who's afraid of the dark — and learns a simple trick to feel brave. Perfect for wind-down time.\n\nThis video uses AI narration and AI-generated illustrations.\n\n#BedtimeStory #KidsStory #SleepyMeadowStories",
+          "image": [{ "id": "9f45e98f-3564-43d6-b7c5-e28cbb8e457d", "path": "https://uploads.postiz.com/ixq4TU4Sup.mp4" }]
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Bunny Who Was Afraid of the Dark | A Sleepy Meadow Bedtime Story",
+        "type": "private",
+        "selfDeclaredMadeForKids": "yes",
+        "tags": [
+          { "value": "bedtime story", "label": "bedtime story" },
+          { "value": "kids story", "label": "kids story" },
+          { "value": "toddler story", "label": "toddler story" }
+        ]
+      }
+    }
+  ]
+}

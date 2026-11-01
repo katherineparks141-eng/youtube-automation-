@@ -1,0 +1,29 @@
+{
+  "type": "now",
+  "date": "2026-11-01T18:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "The true story behind America's most famous ghost story — what's actually documented about the Bell family of Adams, Tennessee, and what only comes from a book written seventy years after the fact.\n\nThis video uses AI narration and AI-generated illustrations to tell a researched, source-checked history.\n\nSources: Wikipedia (Bell Witch); Mental Floss; World History Encyclopedia; Goodspeed's History of Tennessee (1886); Martin Van Buren Ingram, An Authenticated History of the Bell Witch (1894)\n\n#BellWitch #TennesseeHistory #AmericanFolklore",
+          "image": [{ "id": "4ebfedba-8ac6-4769-bb38-65f2d7cb3ddc", "path": "https://uploads.postiz.com/LgDmIEefYg.mp4" }]
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Bell Witch of Tennessee: What Actually Happened",
+        "type": "private",
+        "selfDeclaredMadeForKids": "no",
+        "tags": [
+          { "value": "bell witch", "label": "bell witch" },
+          { "value": "tennessee history", "label": "tennessee history" },
+          { "value": "american folklore", "label": "american folklore" },
+          { "value": "ghost story", "label": "ghost story" }
+        ]
+      }
+    }
+  ]
+}

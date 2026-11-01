@@ -1,0 +1,19 @@
+# Secrets — never commit
+.env
+*.env
+*api_key*
+
+# Generated media — large binaries, regenerate rather than version
+*.mp4
+*.wav
+*.mp3
+
+# Voice models — large, re-downloaded by pipeline/setup_tts_voices.sh
+*.onnx
+*.onnx.json
+
+# Python / Node cruft
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
