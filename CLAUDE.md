@@ -14,7 +14,12 @@ file is the *execution* rules, that doc is the *strategy*. Keep both in sync.
 1. **Never publish without Katie's explicit yes on that exact post.** The posting script
    (`~/katie-hq/shared/postiz.py` on her Mac) previews by default and only sends with
    `--yes`. That flag is only ever used after Katie has approved that specific video,
-   title, description, and privacy setting — never on a standing "go ahead."
+   title, description, and privacy setting — never on a standing "go ahead." Per Katie's
+   existing HQ pattern (`~/katie-hq/shared/RUN_CLOSEOUT.md`), that approval is captured as
+   a to-do on the Katie HQ dashboard (https://claude.ai/artifact/KPm8DRRk9RrVT9JH3YtcQL,
+   `ArtifactData` collection `todos`, project id `youtube`) with `ask: "approve"` — her
+   Approve tap there (collection `approvals`, doc id = the to-do id, `byOwner: true`,
+   `text` unchanged) is the "yes," not a chat reply. See "Approval flow" below.
 2. **Made-for-kids declaration must be accurate per channel, not defaulted.**
    - Forgotten & Found → `selfDeclaredMadeForKids: "no"` (general-audience content).
    - Sleepy Meadow Stories → `selfDeclaredMadeForKids: "yes"` (genuinely children's
@@ -73,13 +78,19 @@ channel before pushing further.
    - Sleepy Meadow → `en_US-amy-medium` (warm female narrator)
    Voice models download once from Hugging Face (`rhasspy/piper-voices`) — see
    `pipeline/setup_tts_voices.sh`. Generate with `pipeline/generate_narration.py`.
-   (Higgsfield's paid narration is a fallback only if Piper's quality isn't good enough
-   for a given video — it costs real credits per generation, confirm spend with Katie
-   first.)
-3. **Visuals — Canva's `generate-image` tool.** Not plan-gated the way Higgsfield's
-   image model is. For any recurring character (e.g. Pip the bunny), generate one
-   reference image first, then pass its Canva media id as `imageReferences` on every
-   subsequent image of that character for visual consistency.
+   (Narration stays on Piper always — neither Runway nor Higgsfield can generate speech
+   on a free plan, and Katie decided Nov 1, 2026 not to pay to unlock either for this.)
+3. **Visuals — Canva's `generate-image` tool is the primary source**, not plan-gated.
+   For any recurring character (e.g. Pip the bunny), generate one reference image first,
+   then pass its Canva media id as `imageReferences` on every subsequent image of that
+   character for visual consistency.
+   **Runway's free-tier image models (nano-banana-pro, seedream-5-pro, gen-4, etc.) are a
+   secondary source** — Katie has ~530 leftover credits there and image generation
+   (unlike speech/video) isn't plan-gated on Runway's free tier, so it's worth spending
+   those down before they expire/she cancels, rather than leaving them unused. Higgsfield
+   is NOT used for visuals or narration going forward (see "Open items" — image gen is
+   blocked outright on its free plan and its audio credit allowance is too small to be
+   useful); drop it from the pipeline.
 4. **Assembly — ffmpeg, local, no cost.** Ken Burns pan/zoom per still, duration sliced
    evenly across the image set to match total narration length, then muxed with the
    narration track. Template in `pipeline/assemble_video.sh`.
@@ -88,9 +99,46 @@ channel before pushing further.
    python3 ~/katie-hq/shared/postiz.py upload --project forgotten-and-found FILE.mp4
    python3 ~/katie-hq/shared/postiz.py post --project forgotten-and-found payload.json
    ```
-   without `--yes` first — this only previews, nothing is sent. Show Katie the preview
-   (title, description, tags, privacy, kids declaration) before ever adding `--yes`.
-6. **Publish** — only after Katie's explicit yes on that exact preview.
+   without `--yes` first — this only previews, nothing is sent.
+6. **Publish** — only after Katie's Approve tap on the dashboard to-do for that exact
+   video (see "Approval flow" below) — never from a chat "go ahead" and never from a
+   standing instruction.
+
+## Approval flow (Katie HQ dashboard)
+
+Katie's existing cross-project pattern (`~/katie-hq/shared/RUN_CLOSEOUT.md`) is how every
+automated run gets her yes, and this project uses it instead of a chat-only approval:
+
+1. After producing a preview (step 5 above), add ONE to-do via `ArtifactData` `batch`
+   (op `set`) to collection `todos` on the dashboard
+   (`https://claude.ai/artifact/KPm8DRRk9RrVT9JH3YtcQL`), doc_id
+   `r<YYYYMMDD>-youtube-production-01` (increment the suffix if more than one that day):
+   ```json
+   {
+     "project": "youtube",
+     "projectName": "YouTube Automation",
+     "text": "Approve posting \"<title>\" (<channel>, public) to the Katie Tuell YouTube channel",
+     "ask": "approve",
+     "done": false,
+     "createdAt": "<ISO now>",
+     "source": "youtube-production",
+     "sourceName": "YouTube automation routine",
+     "prompt": "Work in the youtube-automation- repo (katherineparks141-eng/youtube-automation-). Read channels/<channel>/posts/<NN>-payload.json and the matching script. The preview is already uploaded to Postiz. Run `python3 ~/katie-hq/shared/postiz.py post --project forgotten-and-found payload.json --yes` to publish it, then confirm it posted and update the to-do. End with /wrap."
+   }
+   ```
+   `text` must name the exact title, channel, and "public" — that exact wording is what
+   her Approve tap counts as a yes for.
+2. **Every new routine firing starts by checking for a pending approval from last time**,
+   per `RUN_CLOSEOUT.md` step 3b: `list`/`query` the `todos` collection for open
+   (`done: false`) docs with `source: "youtube-production"`, then read the matching
+   `approvals/<same doc id>` doc. If `byOwner: true` and `text` matches exactly with no
+   `handledAt` yet: that is Katie's yes — run the `--yes` publish now, then `update` the
+   approval with `handledAt` + one-line `result`, and tick the to-do `done: true`. If the
+   approval doc doesn't exist yet or has no tap, leave it — don't publish, don't nag, just
+   move on to producing the next video.
+3. Never publish a video whose to-do Katie hasn't tapped Approve on. Never mark a to-do
+   done without having actually published (or, if the attempt failed, without saying so
+   in `result`).
 
 ## Packaging rules (titles, thumbnails, hashtags, tags, captions)
 
@@ -139,8 +187,11 @@ channel before pushing further.
   documented safe API path through Postiz — do it manually in YouTube Studio
   (Content → privacy dropdown). Don't guess at the API here; a wrong call risks
   duplicate-posting to a live channel.
-- **Higgsfield credits:** the account is on the free plan (image generation is fully
-  plan-gated there; audio costs real credits per generation, ~5 credits for a
-  medium-length segment with ~10 free credits total). Canva + Piper are the real
-  production path now — only reach for Higgsfield if a specific video needs something
-  they can't do, and confirm spend with Katie first.
+- **Higgsfield vs. Runway (decided Nov 1, 2026):** Katie was weighing whether to keep
+  paying for Runway vs. Higgsfield and use only one. Neither can generate speech or video
+  without a paid-plan upgrade (both checked on free-tier connections), so narration stays
+  on Piper regardless. For images, Higgsfield's model is fully plan-gated on the free
+  tier (unusable), while Runway's image models work on its free tier right now with
+  ~530 leftover credits. **Decision: drop Higgsfield, use Canva (primary) + Runway
+  (secondary, spend down the leftover credits) for visuals.** Revisit if Runway's free
+  tier changes or the credits run out.
