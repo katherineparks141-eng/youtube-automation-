@@ -7,6 +7,12 @@
 *.mp4
 *.wav
 *.mp3
+*.png
+*.jpg
+*.jpeg
+
+# Scratch narration text pulled from scripts during production — not a source file
+narration_*.txt
 
 # Voice models — large, re-downloaded by pipeline/setup_tts_voices.sh
 *.onnx
