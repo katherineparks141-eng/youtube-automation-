@@ -1,0 +1,31 @@
+{
+  "type": "now",
+  "date": "2026-11-03T19:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "In 1590, an English governor returned to Roanoke Island to find ninety colonists gone without a trace — no bodies, no graves, just one word carved into a post: CROATOAN. We rank all six leading theories from weakest to strongest, including the one the National Park Service still can't rule out.\n\nThis video uses AI narration and AI-generated illustrations.\n\nSources: National Park Service, Fort Raleigh National Historic Site — \"Major Theories of the Lost Colony\" (home.nps.gov/fora); NCpedia (North Carolina Government & Heritage Library) — \"Virginia Dare and the Lost Colony: Fact and Legend\"; History Hit — \"The Mystery of the Lost Roanoke Colony\".\n\n#ForgottenAndFound #LostColony #Roanoke #UnsolvedMysteries #History",
+          "image": [{ "id": "b0612b3f-b6ad-4e9f-8446-2211304b937a", "path": "https://uploads.postiz.com/bftJpcSbX7.mp4" }]
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Lost Colony of Roanoke: Every Theory, Ranked",
+        "type": "public",
+        "selfDeclaredMadeForKids": "no",
+        "tags": [
+          { "value": "roanoke colony", "label": "roanoke colony" },
+          { "value": "lost colony of roanoke", "label": "lost colony of roanoke" },
+          { "value": "croatoan", "label": "croatoan" },
+          { "value": "unsolved mystery history", "label": "unsolved mystery history" },
+          { "value": "american history mystery", "label": "american history mystery" },
+          { "value": "john white roanoke", "label": "john white roanoke" }
+        ]
+      }
+    }
+  ]
+}
