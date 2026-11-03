@@ -202,6 +202,38 @@ report. It's read-only reporting — no approval needed to refresh it.
 - Weekly/monthly review cadence already defined in Idea 7 of the Playbook doc — run it
   against these new videos too, not just as a one-off audit.
 
+## Known limitation: scheduled runs can't actually execute `--yes`
+
+Discovered 2026-11-03. The scheduled task (`trig_01Cqhoxe6NxbohqsMRQrPLgb`,
+`permission_mode: "auto"`) already has automatic tool approval — but when a
+run tried to execute `postiz.py post ... --yes` for a video Katie had already
+approved on the dashboard (via the documented approval flow in this file), it
+was blocked by a *separate* environment-level guardrail: "Permission for this
+action was denied by the Claude Code auto mode classifier. Reason: [Create
+Public Surface]." This is not the same thing as the trigger's own
+`permission_mode` — a scheduled task set to `auto` still hits this block, so
+raising/changing the trigger's approval setting does not fix it on its own.
+
+Practical effect: STEP 1 of the routine (publishing a prior approval) can
+build the to-do, read Katie's Approve tap, and confirm it's genuine — but it
+cannot actually run the `--yes` command. It should stop there and report
+clearly that a valid approval is waiting but could not be executed, so Katie
+can run the `postiz.py post ... --yes` command herself (she can copy it
+directly from the to-do's `prompt` field). Do not try to route around this by
+using a different tool, a different session type, or a workaround shell
+trick — it's a deliberate guardrail against autonomous sessions taking
+irreversible public-facing actions unattended, and routing around it defeats
+the point of hard rule 1 (never publish without Katie's actual yes being
+*executed* by someone who can be held to it).
+
+Open question for Katie: is there a way to configure this specific scheduled
+task (or a dedicated "publish-only" task) so that it CAN execute an already
+Katie-approved `--yes` publish unattended, without weakening the guardrail
+for anything else? This needs investigating with Anthropic's scheduled-task /
+Cowork documentation — not guessed at. Until resolved, every publish needs a
+human to run the final `--yes` command by hand, even when the Katie HQ
+dashboard approval flow already captured a genuine, verifiable yes.
+
 ## Open items / needs Katie's call
 
 - **One YouTube channel is currently carrying both concepts** ("Katie Tuell" channel).
