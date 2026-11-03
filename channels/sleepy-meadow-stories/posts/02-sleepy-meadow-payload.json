@@ -1,0 +1,29 @@
+{
+  "type": "now",
+  "date": "2026-11-03T19:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "Pip the bunny is tucked in, but his wiggly thoughts won't settle down for sleep. Mama Rabbit teaches him a gentle star-counting trick to help his busy mind slow down and drift off.\n\nThis video uses AI narration and AI-generated illustrations.\n\n#BedtimeStory #KidsStory #SleepyMeadowStories",
+          "image": [{ "id": "7bcb6e0c-17d4-4dce-8fc3-99e6ca4728c1", "path": "https://uploads.postiz.com/15iYczcRci.mp4" }]
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Bunny Who Counted the Stars | A Sleepy Meadow Bedtime Story",
+        "type": "public",
+        "selfDeclaredMadeForKids": "yes",
+        "tags": [
+          { "value": "bedtime story", "label": "bedtime story" },
+          { "value": "kids story", "label": "kids story" },
+          { "value": "toddler story", "label": "toddler story" },
+          { "value": "calm down for bed", "label": "calm down for bed" }
+        ]
+      }
+    }
+  ]
+}

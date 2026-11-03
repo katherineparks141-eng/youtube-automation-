@@ -1,0 +1,23 @@
+{
+  "channel": "sleepy-meadow-stories",
+  "characters": {
+    "pip": {
+      "description": "Small gray-brown bunny, round ears, pale blue nightshirt, big expressive kind eyes. Lives in a moss-lined burrow bedroom with a round window.",
+      "canvaReferenceMediaId": "MAHZ4b-B8ng",
+      "generatedIn": "2026-11-03 scheduled run (story 02, 'The Bunny Who Counted the Stars')",
+      "note": "Canva MEDIA ids are per-session/workspace and are not guaranteed to resolve in a future session. If imageReferences with this id fails in a later run, regenerate a fresh reference image using the description above and update this file with the new id."
+    },
+    "mama_rabbit": {
+      "description": "Pip's mother, warm and gentle, same bunny art style as Pip, slightly larger.",
+      "canvaReferenceMediaId": null,
+      "note": "No standalone reference generated yet — has only appeared alongside Pip using his reference image."
+    },
+    "oona": {
+      "description": "A gentle round owl with big kind eyes, soft brown and cream feathers, perches on a tree branch outside Pip's window at night.",
+      "canvaReferenceMediaId": null,
+      "note": "No standalone reference generated yet — introduced in story 01, appears again in story 02."
+    }
+  },
+  "palette": "Pastel night palette: deep blues, lavender, warm amber window-light. Soft painterly/storybook illustration style.",
+  "lastUpdated": "2026-11-03"
+}
