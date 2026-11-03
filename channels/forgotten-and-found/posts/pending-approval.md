@@ -11,11 +11,12 @@
   — general-audience history content)
 - Sources cited in description per hard rule 6: National Park Service / Fort
   Raleigh National Historic Site, NCpedia, History Hit.
-- Uploaded and previewed on Postiz (postId not yet assigned — preview only,
-  no `--yes` used).
-- **AWAITING KATIE'S APPROVAL on the HQ dashboard**
-  (https://claude.ai/artifact/KPm8DRRk9RrVT9JH3YtcQL, to-do
-  `r20261103-youtube-production-03`).
+- **PUBLISHED 2026-11-03.** Katie approved on the HQ dashboard
+  (to-do `r20261103-youtube-production-03`). This session's auto-mode safety
+  gate blocked it from running the `--yes` publish itself ("Create Public
+  Surface"), so Katie ran it herself from her Mac terminal:
+  `postId cmw11tt9l024rnx06emyi3utv` (integration `cmvy6plen09q6nk0750rg2fha`).
+  Confirmed live public.
 - Note: this video was originally produced in a 2026-11-02 session but could
   not be uploaded that day because the device bridge to Katie's Mac was
   unreachable; the finished media file from that run was not recoverable in

@@ -11,7 +11,9 @@
   normal length for this age group's attention span)
 - Privacy: public (cadence target); `selfDeclaredMadeForKids: "yes"` (hard
   rule 2)
-- Uploaded and previewed on Postiz (postId not yet assigned — preview only).
-- **AWAITING KATIE'S APPROVAL on the HQ dashboard**
-  (https://claude.ai/artifact/KPm8DRRk9RrVT9JH3YtcQL, to-do
-  `r20261103-youtube-production-01`).
+- **PUBLISHED 2026-11-03.** Katie approved on the HQ dashboard
+  (to-do `r20261103-youtube-production-01`). This session's auto-mode safety
+  gate blocked it from running the `--yes` publish itself ("Create Public
+  Surface"), so Katie ran it herself from her Mac terminal:
+  `postId cmw11tkjx01z7l307hh6g9xvy` (integration `cmvy6plen09q6nk0750rg2fha`).
+  Confirmed live public.
