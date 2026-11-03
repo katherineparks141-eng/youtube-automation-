@@ -234,6 +234,47 @@ Cowork documentation — not guessed at. Until resolved, every publish needs a
 human to run the final `--yes` command by hand, even when the Katie HQ
 dashboard approval flow already captured a genuine, verifiable yes.
 
+**Research findings (2026-11-03):** This is Claude Code's "auto mode"
+classifier — a model that reviews actions that would otherwise prompt for
+approval, even when a scheduled task's `permission_mode` is `"auto"` (which
+only skips the *human-in-the-loop prompt*, not the classifier itself). The
+classifier returns a bracketed rule name on denial (`[Create Public
+Surface]` here; official docs mention `[Data Exfiltration]` as another
+example) — "Create Public Surface" itself isn't named in the public docs we
+could reach, so its exact scope is inferred from the denial message, not
+confirmed. What IS documented:
+  - An **org admin** can disable auto mode entirely for the organization via
+    managed settings (`permissions.disableAutoMode: "disable"`) — this
+    would make every action in every scheduled run require a real human
+    approval, which is the opposite of what we want here.
+  - A **user-level** `~/.claude/settings.json` can set `autoMode.allow` /
+    `autoMode.environment` entries to mark specific repos/services as
+    trusted, and `permissions.allow` rules can explicitly allow a specific
+    command. **Unverified**: whether a `permissions.allow` rule for the
+    exact `postiz.py ... --yes` command actually overrides this specific
+    classifier category, since "Create Public Surface" looks like a
+    content-level judgment (publishing something public) rather than a
+    path/command-level permission the usual allow-list mechanism targets.
+  - No config was found that targets "Create Public Surface" by name
+    specifically, or that would let a *cloud scheduled task* (as opposed to
+    a local CLI session) carry a custom settings.json at all — scheduled
+    cloud runs may not read `~/.claude/settings.json` on Katie's Mac the
+    way a local session would.
+  - The honest conclusion: there is no confirmed, documented way to make an
+    unattended scheduled run actually execute a real `--yes` publish. The
+    safest reading is that this is a deliberate, largely non-configurable
+    guardrail against autonomous agents taking irreversible public-facing
+    actions unattended — which is actually in line with hard rule 1's
+    intent, just enforced one layer deeper (at the harness level) than the
+    Katie HQ dashboard approval flow this project built.
+
+**Until/unless this changes:** keep STEP 1 of the routine exactly as
+written — verify the approval is genuine, but stop short of running
+`--yes`, and report the ready-to-run command so Katie can paste it into her
+own terminal (as she's done in practice on 2026-11-03). Don't attempt
+workarounds (different tool, different session type, shell tricks) to route
+around the classifier; that defeats its purpose.
+
 ## Open items / needs Katie's call
 
 - **One YouTube channel is currently carrying both concepts** ("Katie Tuell" channel).
