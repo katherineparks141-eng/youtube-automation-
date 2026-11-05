@@ -16,9 +16,12 @@
   Lynneth J. Miller [Renberg], *Dance Research* (2017).
 - Pillar: Strange But True (first F&F video in this pillar — prior two were both
   Unsolved & Unexplained).
-- **AWAITING KATIE'S APPROVAL on the HQ dashboard.** Preview already uploaded to
-  Postiz (media id `fea36650-31c2-49b9-b7f6-7976971fee57`); `postiz.py post`
-  previewed successfully without `--yes`. Dashboard to-do staged next.
+- **PUBLISHED 2026-11-05.** Katie approved on the HQ dashboard
+  (to-do `r20261105-youtube-production-01`) and ran the `--yes` publish herself
+  from her Mac terminal (this session's auto-mode safety gate again blocked it
+  from running `--yes` itself — "Create Public Surface" — same as 11/3):
+  `postId cmw3vnrqv0gkpod07x2z1xcq9` (integration `cmvy6plen09q6nk0750rg2fha`).
+  Confirmed live public.
 
 ## 2026-11-03 — "The Lost Colony of Roanoke: Every Theory, Ranked"
 - Logline: John White returns to Roanoke in 1590 to find all 117 colonists gone
