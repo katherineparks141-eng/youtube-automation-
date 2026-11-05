@@ -1,0 +1,33 @@
+{
+  "type": "now",
+  "date": "2026-11-05T19:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "Strasbourg, 1518: a woman dances into the street and won't stop. #ForgottenAndFound Within a month, nearly four hundred people had joined her, dancing until they collapsed. This is the real, documented history behind Europe's strangest medieval mystery, and the three competing theories for what actually caused it.\n\nThis video uses AI narration and AI-generated illustrations.\n\nSources: Wikipedia — \"Dancing plague of 1518\"; National Geographic — \"The true story of the 'dancing plague' that struck a city 500 years ago\"; John Waller, A Time to Dance, A Time to Die: The Extraordinary Story of the Dancing Plague of 1518 (2008) and \"A forgotten plague: making sense of dancing mania,\" The Lancet (2009); Lynneth J. Miller [Renberg], \"Divine Punishment or Disease? God, Satan, and the Dance Plague of 1518,\" Dance Research (2017).\n\n#ForgottenAndFound #DancingPlague #Strasbourg #MedievalHistory #StrangeButTrue",
+          "image": [{ "id": "fea36650-31c2-49b9-b7f6-7976971fee57", "path": "https://uploads.postiz.com/tnAp4bxrz5.mp4" }]
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Dancing Plague of 1518: When a City Danced Itself to Death",
+        "type": "public",
+        "selfDeclaredMadeForKids": "no",
+        "tags": [
+          { "value": "dancing plague of 1518", "label": "dancing plague of 1518" },
+          { "value": "dancing plague strasbourg", "label": "dancing plague strasbourg" },
+          { "value": "choreomania", "label": "choreomania" },
+          { "value": "mass hysteria history", "label": "mass hysteria history" },
+          { "value": "medieval dancing mania", "label": "medieval dancing mania" },
+          { "value": "frau troffea", "label": "frau troffea" },
+          { "value": "st vitus dance", "label": "st vitus dance" },
+          { "value": "strange true history", "label": "strange true history" }
+        ]
+      }
+    }
+  ]
+}
