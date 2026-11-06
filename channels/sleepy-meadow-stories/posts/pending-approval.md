@@ -1,5 +1,37 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-06 — "The Bunny Who Didn't Want to Miss Anything" (PRODUCTION BLOCKED, not staged)
+- Logline: Pip resists bedtime because he's afraid he'll miss something fun while
+  asleep; Oona the owl helps him see that good things wait for him and that dreams
+  can be their own best part. Addresses bedtime FOMO/resistance — a different theme
+  from stories 1 (fear of dark) and 2 (busy thoughts).
+- Script: `scripts/03-the-bunny-who-didnt-want-to-miss-anything.md`
+- Runtime: 2:51 (narration-length)
+- Privacy (intended): public (cadence target); `selfDeclaredMadeForKids: "yes"`
+  (hard rule 2)
+- Pillar: Pip the Bunny (3rd story — Mama Rabbit + Oona both return as supporting
+  characters, same character models/palette as stories 1-2)
+- **STATUS: fully produced in the cloud session, but could not be staged for
+  Postiz preview.** Completed: script, 9 Canva-generated illustrations (character
+  consistency via `imageReferences`), 1 dedicated calm thumbnail (per the
+  no-exaggerated-thumbnails rule), Piper narration (`en_US-amy-medium`), ffmpeg
+  assembly (2:51 final video). **Blocked at the upload step**: every
+  `device_commit_files` call to write the finished video/thumbnail into
+  `shared/youtube-staging/sleepy-meadow-stories/` on Katie's Mac failed with
+  `wall-clock timeout` — repeated 6 times across ~5 minutes, including a trivial
+  1-line test file, while `device_bash` (shell commands on the same Mac) worked
+  fine the whole time. This is a different failure than the documented
+  "Create Public Surface" classifier block (see CLAUDE.md "Known limitation") —
+  this one prevented even *staging a preview*, before any publish step. No
+  Postiz upload/preview happened, so no payload JSON, no postId, and **no
+  dashboard approval to-do was created this run** (there is nothing real yet for
+  Katie to approve). The finished video/images/narration remain only in the
+  cloud session's working directory and were not committed to the repo (media is
+  gitignored by design — "regenerate rather than version"), so a future run will
+  need to re-render them from this script, or the device bridge needs to recover
+  so the already-rendered files in this session can be staged before the session
+  ends.
+
 ## 2026-11-03 — "The Bunny Who Counted the Stars"
 - Logline: Pip can't settle down for sleep; Mama Rabbit teaches him a gentle
   star-counting breathing trick, with Oona the owl returning as a supporting

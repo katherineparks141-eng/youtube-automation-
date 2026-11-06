@@ -275,6 +275,39 @@ own terminal (as she's done in practice on 2026-11-03). Don't attempt
 workarounds (different tool, different session type, shell tricks) to route
 around the classifier; that defeats its purpose.
 
+## Known limitation: `device_commit_files` can fail independently of the publish guardrail
+
+Discovered 2026-11-06. During a scheduled run, after fully producing a Sleepy
+Meadow video (script, Canva illustrations, Piper narration, ffmpeg assembly,
+thumbnail) in the cloud session, every attempt to stage the finished files onto
+Katie's Mac via `device_commit_files` (needed before `postiz.py upload` can run,
+since Postiz and its API key only exist on her Mac) failed with `wall-clock
+timeout` — 6 attempts over about 5 minutes, including a trivial 1-line test
+file written to a folder that already existed. `device_bash` (running shell
+commands on the same Mac over the same bridge) worked correctly the entire
+time, which rules out the bridge being down generally — this looks like a
+narrower fault in the file-commit relay specifically.
+
+This is a different failure from the documented auto-mode classifier block
+above: that one stops the `--yes` publish step itself; this one stops *staging
+a preview* well before any publish step is reached, so hard rule 1 was never
+even in play that run. Practical effect: STEP 3 of the routine can fully
+produce a video but cannot always get it onto Katie's Mac for the Postiz
+preview, and per the same "don't route around a guardrail/tool failure"
+principle as above, a run that hits this should stop, not try an alternate
+transfer path (base64 over `device_bash`, re-encoding, etc.), and should
+clearly log in the channel's `pending-approval.md` that production finished
+but staging failed, with no dashboard to-do created (there's nothing real yet
+to approve). The rendered video/images/narration are not committed to the repo
+(gitignored by design) and are only reliably recoverable within the session
+that made them — if the bridge comes back before that session ends, it's
+worth retrying `device_commit_files` on the same files before giving up.
+
+Open question for Katie: was this a one-off (Wi-Fi hiccup, Mac asleep, app
+backgrounded) or a sign `device_commit_files` needs a longer timeout / retry
+logic for larger files specifically? Worth a quick recheck next time a run
+hits this before assuming it's systemic.
+
 ## Open items / needs Katie's call
 
 - **One YouTube channel is currently carrying both concepts** ("Katie Tuell" channel).
