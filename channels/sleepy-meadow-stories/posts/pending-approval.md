@@ -1,6 +1,6 @@
 # Sleepy Meadow Stories — pending approval log
 
-## 2026-11-07 — "The Bunny Who Didn't Want to Miss Anything" (RETRY SUCCEEDED — now AWAITING APPROVAL)
+## 2026-11-07 — "The Bunny Who Didn't Want to Miss Anything" (APPROVED, publish attempt FAILED — YouTube quota)
 - Same video/script as the 2026-11-06 entry below — production was already complete, only
   staging was blocked. The device-bridge `device_commit_files` issue from 11/6 cleared on
   retry this session (confirmed first with a trivial probe file, then the real video,
@@ -11,11 +11,21 @@
 - Script: `scripts/03-the-bunny-who-didnt-want-to-miss-anything.md`
 - Runtime: 2:51 (narration-length)
 - Privacy: public (cadence target); `selfDeclaredMadeForKids: "yes"` (hard rule 2)
-- Previewed via `postiz.py post ... ` (no `--yes`) — confirmed not sent.
-- **AWAITING KATIE'S APPROVAL on the HQ dashboard** (to-do
-  `r20261107-youtube-production-01`). Per the known `--yes` classifier limitation,
-  publishing after her Approve tap will still need to be run by hand from her Mac
-  terminal (command is in the to-do's `prompt` field).
+- Previewed via `postiz.py post ...` (no `--yes`) — confirmed not sent, then genuinely
+  approved on the HQ dashboard (to-do `r20261107-youtube-production-01`, verified
+  `byOwner: true`, text matched exactly).
+- Katie ran the `--yes` publish herself from her Mac terminal (this session's auto-mode
+  safety gate again blocked it from running `--yes` itself — "Create Public Surface" —
+  same as 11/3 and 11/5). **Postiz accepted the request (post id
+  `cmw5robwi0x8vmm08qskqpxnm`) but YouTube rejected the upload: "YouTube's daily upload
+  quota is exhausted for today, please reschedule this post for a later time." Post state
+  is `ERROR`, `releaseURL` is null — NOT live, NOT published.**
+- Nothing about the title/description/privacy needs to change — this is an external
+  YouTube API quota limit, not a content problem. The to-do is left **open** (not marked
+  done) since nothing published; the same approval still stands, so re-running the exact
+  same `--yes` command later (quota typically resets at midnight Pacific) should be all
+  that's needed — no re-approval required. Noted on the to-do itself for the next run or
+  for Katie to retry by hand.
 
 ## 2026-11-06 — "The Bunny Who Didn't Want to Miss Anything" (PRODUCTION BLOCKED, not staged)
 - Logline: Pip resists bedtime because he's afraid he'll miss something fun while
