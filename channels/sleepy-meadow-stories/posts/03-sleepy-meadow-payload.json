@@ -1,0 +1,30 @@
+{
+  "type": "now",
+  "date": "2026-11-07T15:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "Pip doesn't want to go to sleep — what if he misses something good while his eyes are closed? #SleepyMeadowStories Oona the owl helps him see that the meadow waits patiently for him, and that dreams might just be the best part of all.\n\nThis video uses AI narration and AI-generated illustrations.\n\n#BedtimeStory #ToddlerSleepHelp #DreamyBedtime",
+          "image": [{ "id": "1aa97ccc-6d3b-4ab3-83df-4562fbc768fa", "path": "https://uploads.postiz.com/c7UjQHHBTk.mp4" }]
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Bunny Who Didn't Want to Miss Anything | A Sleepy Meadow Bedtime Story",
+        "type": "public",
+        "selfDeclaredMadeForKids": "yes",
+        "tags": [
+          { "value": "bedtime story for toddlers", "label": "bedtime story for toddlers" },
+          { "value": "toddler bedtime story", "label": "toddler bedtime story" },
+          { "value": "dont want to miss anything", "label": "dont want to miss anything" },
+          { "value": "bedtime fomo", "label": "bedtime fomo" },
+          { "value": "calm down for sleep", "label": "calm down for sleep" }
+        ]
+      }
+    }
+  ]
+}
