@@ -29,6 +29,11 @@
   failures a couple hours apart suggests this may be a shared/account-wide YouTube API
   quota that doesn't clear quickly, not a once-a-day reset — worth waiting longer (later
   today or tomorrow) before trying again rather than retrying right away.
+- **Third attempt, ~21:49 UTC (about 20 hours after the first)**: Katie ran it herself
+  from her Mac terminal. Still `ERROR` — post id `cmw6xs28f06map308rw229tg7`, same exact
+  message. Three failures spread across ~20 hours rules out a simple once-a-day reset;
+  this looks like a longer-lived or account-wide YouTube API quota block. Recommend
+  waiting at least a full day before trying again.
 - The to-do is left **open** (not marked done) since nothing has published; the same
   approval still stands, so re-running the exact same `--yes` command once the quota
   clears should be all that's needed — no re-approval required.
