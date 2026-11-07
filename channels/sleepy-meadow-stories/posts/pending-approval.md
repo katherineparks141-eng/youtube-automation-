@@ -21,11 +21,17 @@
   quota is exhausted for today, please reschedule this post for a later time." Post state
   is `ERROR`, `releaseURL` is null — NOT live, NOT published.**
 - Nothing about the title/description/privacy needs to change — this is an external
-  YouTube API quota limit, not a content problem. The to-do is left **open** (not marked
-  done) since nothing published; the same approval still stands, so re-running the exact
-  same `--yes` command later (quota typically resets at midnight Pacific) should be all
-  that's needed — no re-approval required. Noted on the to-do itself for the next run or
-  for Katie to retry by hand.
+  YouTube API quota limit, not a content problem.
+- **Second attempt, same session, ~2 hours later (04:18 UTC)**: tried again directly
+  (the dashboard approval was already verified genuine and nothing about the post had
+  changed, so no new approval was needed). Still blocked — Postiz post id
+  `cmw5w7y800ziumm0805xz04iq` also went to `ERROR` with the identical message. Two
+  failures a couple hours apart suggests this may be a shared/account-wide YouTube API
+  quota that doesn't clear quickly, not a once-a-day reset — worth waiting longer (later
+  today or tomorrow) before trying again rather than retrying right away.
+- The to-do is left **open** (not marked done) since nothing has published; the same
+  approval still stands, so re-running the exact same `--yes` command once the quota
+  clears should be all that's needed — no re-approval required.
 
 ## 2026-11-06 — "The Bunny Who Didn't Want to Miss Anything" (PRODUCTION BLOCKED, not staged)
 - Logline: Pip resists bedtime because he's afraid he'll miss something fun while
