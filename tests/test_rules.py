@@ -54,3 +54,24 @@ class Rules(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Handoff(unittest.TestCase):
+    def test_result_file_written_next_to_payload(self):
+        from automation.publish import write_result
+        with tempfile.TemporaryDirectory() as d:
+            post = Path(d) / "05-x-payload.json"
+            write_result(str(post), {"channel": "c", "title": "T", "privacy": "private"},
+                         {"videoId": "abc", "url": "https://youtu.be/abc"})
+            r = json.loads((Path(d) / "05-x-payload.result.json").read_text())
+            self.assertEqual(r["videoId"], "abc")
+            self.assertEqual(r["title"], "T")
+
+    def test_analytics_never_invents(self):
+        from automation.analytics import build
+        v = [{"title": "T", "channel": "c", "videoId": "a", "privacy": "public"}]
+        d = build(v, {}, {"hiddenSubscriberCount": True})
+        self.assertIsNone(d["perVideo"][0]["views"])
+        self.assertIsNone(d["channel"]["subscribers"])
+        d = build(v, {"a": {"viewCount": "12", "likeCount": "3"}}, {"subscriberCount": "7"})
+        self.assertEqual((d["perVideo"][0]["views"], d["perVideo"][0]["comments"], d["channel"]["subscribers"]), (12, None, 7))

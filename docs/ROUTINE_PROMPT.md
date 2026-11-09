@@ -12,14 +12,13 @@ STEP 0 — Load the rules.
 
 STEP 1 — Check publish status from prior runs (read-only). Publishing is NOT done by this routine any more.
 - Katie approves on GitHub (the `publish-approval` environment review on the `publish` workflow in `katherineparks141-eng/youtube-automation-`). Never run `postiz.py ... --yes`, never publish by any other route, never approve a deployment yourself.
-- Run `gh run list --repo katherineparks141-eng/youtube-automation- --workflow publish.yml --limit 10` and `gh issue list --repo katherineparks141-eng/youtube-automation- --state open`. Report: runs still waiting for Katie, runs that succeeded (video URL is in the run log), and any open "Publish blocked" issue (quota exhausted = retry after midnight Pacific; do not retry blindly).
+- Run `gh run list --repo katherineparks141-eng/youtube-automation- --workflow publish.yml --limit 10` and `gh issue list --repo katherineparks141-eng/youtube-automation- --state open`. Report: runs still waiting for Katie, runs that succeeded (read `channels/*/posts/*.result.json` for the video URL and publish time; the publisher writes these), and any open "Publish blocked" issue (quota exhausted = retry after midnight Pacific; do not retry blindly).
 - Append a one-line note to the channel's `posts/pending-approval.md` for any run that finished since the last note, then commit/push.
 
-STEP 1.5 — Refresh the analytics report (read-only, no approval needed). NOTE: videos published through the new GitHub publisher are not in Postiz, so Postiz analytics only cover older Postiz-published videos. For new videos write "no data" in `perVideo` (never estimate) and say so in the final message.
-- For every already-published video (postId recorded in that channel's `posts/*.json`), run `python3 ~/katie-hq/shared/postiz.py analytics --post <postId> --days 30` and sum views/likes/comments.
-- Run `python3 ~/katie-hq/shared/postiz.py analytics --integration cmvy6plen09q6nk0750rg2fha --days 30` for channel-level subscribers gained/lost.
-- `ArtifactData` `update` collection `dashboard`, doc_id `youtube-analytics` on the dashboard above with the refreshed `views`, `subscribersNetChange`, `perVideo[]`, and `lastRefreshed`. Leave `spendUsd`/`revenueUsd`/`profitUsd`/`monetized` at $0/false unless you have hard evidence otherwise (never estimate).
-- Also `update` the `youtube` entry inside `dashboard/current`.projects[] with a refreshed one-line `line` field reflecting the new numbers (read `dashboard/current` first for its `if_version`), and mirror both of these writes into `~/katie-hq/shared/dashboard.json` (same project `line` + nothing else) via device_bash. Commit that one file if changed.
+STEP 1.5 — Refresh the dashboard analytics from the repo (read-only, no approval needed).
+- `git pull`, then read `data/youtube-analytics.json` (the `analytics` workflow refreshes it daily from the YouTube API). `null` means no data: never estimate or fill in.
+- `ArtifactData` `update` collection `dashboard`, doc_id `youtube-analytics` on the dashboard above with its `lastRefreshed`, `channel.totalViews`, `channel.subscribers` (as `subscribersNetChange` only if you can compute it from a prior value; otherwise leave it and say "no data"), and `perVideo[]` (title/channel/videoId/views/likes/comments). Leave `spendUsd`/`revenueUsd`/`profitUsd`/`monetized` at $0/false unless you have hard evidence otherwise.
+- Also `update` the `youtube` entry inside `dashboard/current`.projects[] with a refreshed one-line `line` field reflecting the new numbers (read `dashboard/current` first for its `if_version`).
 
 STEP 2 — Decide which channel is due today and produce ONE new video end-to-end.
 - Forgotten & Found posts Monday and Thursday; Sleepy Meadow Stories posts Tuesday and Friday. Check today's weekday.

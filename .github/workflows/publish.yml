@@ -15,6 +15,10 @@ on:
 
 concurrency: publish
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   prepare:
     runs-on: ubuntu-latest
@@ -60,6 +64,14 @@ jobs:
           python3 -m automation.publish publish "${{ inputs.post }}" media/video.mp4 --hash "${{ needs.prepare.outputs.hash }}"
           echo "code=$?" >> "$GITHUB_OUTPUT"
           exit 0
+      - name: Record result in repo (read by the routine and analytics)
+        if: steps.pub.outputs.code == '0'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add channels/*/posts/*.result.json
+          git commit -m "Record publish result for ${{ inputs.post }}" || exit 0
+          git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}"
       - name: Alert on non-success
         if: steps.pub.outputs.code != '0'
         env: { GH_TOKEN: "${{ github.token }}" }

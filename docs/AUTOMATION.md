@@ -44,3 +44,7 @@ personal access token limited to that one repo, permission Contents: read-only. 
 github.com/settings/personal-access-tokens/new, then run (it prompts, hidden):
 `gh secret set MEDIA_TOKEN --repo katherineparks141-eng/youtube-automation-`
 Routine upload: `gh release create post-<ch>-<NN> video.mp4 --repo katherineparks141-eng/youtube-automation-media`.
+
+## How the routine and the code talk
+- Routine -> code: commits the payload, uploads `video.mp4` to the private media repo, starts `publish.yml`.
+- Code -> routine: `publish.yml` commits `<payload>.result.json` (video id, URL, time) after a verified upload; `analytics.yml` commits `data/youtube-analytics.json` daily. The routine reads both from the repo. Failures open a GitHub issue.
