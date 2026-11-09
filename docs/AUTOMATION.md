@@ -36,3 +36,11 @@ Required reviewers on environments are not available for private repos on GitHub
 Until the `publish-approval` environment really has you as a required reviewer, the publish job
 refuses to run (fails closed). Once it does, set repo variable `APPROVAL_GATE_CONFIRMED=true`.
 Options: GitHub Pro/Team (paid, needs Katie's dollar yes) or make the repo public.
+
+## Private media
+Videos live in releases of the private repo `katherineparks141-eng/youtube-automation-media`
+(never this public repo). The publisher reads them with secret `MEDIA_TOKEN`: a fine-grained
+personal access token limited to that one repo, permission Contents: read-only. Create it at
+github.com/settings/personal-access-tokens/new, then run (it prompts, hidden):
+`gh secret set MEDIA_TOKEN --repo katherineparks141-eng/youtube-automation-`
+Routine upload: `gh release create post-<ch>-<NN> video.mp4 --repo katherineparks141-eng/youtube-automation-media`.
