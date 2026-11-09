@@ -1,0 +1,47 @@
+{
+  "type": "now",
+  "date": "2026-11-07T15:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": {
+        "id": "cmvy6plen09q6nk0750rg2fha"
+      },
+      "value": [
+        {
+          "content": "Pipeline test upload, private. This video uses AI narration and AI-generated illustrations.\n\n#SleepyMeadowStories #BedtimeStory #Test",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "PRIVATE TEST - pipeline check",
+        "type": "private",
+        "selfDeclaredMadeForKids": "yes",
+        "tags": [
+          {
+            "value": "bedtime story for toddlers",
+            "label": "bedtime story for toddlers"
+          },
+          {
+            "value": "toddler bedtime story",
+            "label": "toddler bedtime story"
+          },
+          {
+            "value": "dont want to miss anything",
+            "label": "dont want to miss anything"
+          },
+          {
+            "value": "bedtime fomo",
+            "label": "bedtime fomo"
+          },
+          {
+            "value": "calm down for sleep",
+            "label": "calm down for sleep"
+          }
+        ]
+      }
+    }
+  ]
+}
