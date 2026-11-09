@@ -45,6 +45,14 @@ file is the *execution* rules, that doc is the *strategy*. Keep both in sync.
    "Katie Tuell" YouTube channel, integration id `cmvy6plen09q6nk0750rg2fha`). Don't add
    channels to that file without Katie naming them.
 
+## Automation (2026-11-09)
+
+Publishing moved to GitHub Actions + direct YouTube API. Routine: produce, commit payload,
+upload `video.mp4` to Release `post-<channel>-<NN>`, run `gh workflow run publish.yml -f
+post=<payload> -f tag=<tag>`. Katie's approval is the `publish-approval` environment
+review on GitHub, not a dashboard tap. Never run `--yes` or publish any other way. See
+`docs/AUTOMATION.md`. The Postiz/dashboard sections below are legacy until setup is done.
+
 ## Cadence target
 
 **2 new videos a week per channel, public — 4 total across Forgotten & Found and

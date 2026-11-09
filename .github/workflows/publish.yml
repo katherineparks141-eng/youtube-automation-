@@ -1,0 +1,66 @@
+# Approval-gated publish. The routine dispatches this with a post path and the release
+# tag holding its video. Job 1 validates and prints exactly what would go live. Job 2 uses
+# the `publish-approval` environment, which requires Katie's review (GitHub mobile works),
+# re-checks the content hash, then uploads and verifies. No LLM classifier in the loop.
+name: publish
+on:
+  workflow_dispatch:
+    inputs:
+      post:
+        description: "Payload path, e.g. channels/sleepy-meadow-stories/posts/03-sleepy-meadow-payload.json"
+        required: true
+      tag:
+        description: "Release tag holding video.mp4 (media is never committed)"
+        required: true
+
+concurrency: publish
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      hash: ${{ steps.check.outputs.hash }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch video
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh release download "${{ inputs.tag }}" -p video.mp4 -D media
+      - name: Validate and summarize
+        id: check
+        run: |
+          python3 -m automation.publish check "${{ inputs.post }}" media/video.mp4 | tee summary.txt
+          echo "hash=$(tail -1 summary.txt)" >> "$GITHUB_OUTPUT"
+          { echo '### Review before approving'; echo '```'; cat summary.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+  publish:
+    needs: prepare
+    runs-on: ubuntu-latest
+    environment: publish-approval   # required reviewer = Katie. This is the "yes".
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch video
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh release download "${{ inputs.tag }}" -p video.mp4 -D media
+      - name: Publish (fails if content differs from what was reviewed)
+        id: pub
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          set +e
+          python3 -m automation.publish publish "${{ inputs.post }}" media/video.mp4 --hash "${{ needs.prepare.outputs.hash }}"
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Alert on non-success
+        if: steps.pub.outputs.code != '0'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          case "${{ steps.pub.outputs.code }}" in
+            75) msg="YouTube daily quota exhausted. Re-run this workflow after midnight Pacific." ;;
+            76) msg="Channel-level upload limit hit. Needs a human in YouTube Studio." ;;
+            3)  msg="Content changed after review. Re-dispatch to get a fresh approval." ;;
+            *)  msg="Publish failed (code ${{ steps.pub.outputs.code }}). See run log." ;;
+          esac
+          gh issue create --title "Publish blocked: ${{ inputs.post }}" --body "$msg Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          exit 1
