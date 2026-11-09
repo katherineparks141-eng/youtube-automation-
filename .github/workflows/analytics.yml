@@ -1,0 +1,26 @@
+# Daily real stats for every published video -> data/youtube-analytics.json (read by the routine).
+name: analytics
+on:
+  schedule: [{cron: "0 11 * * *"}]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch stats
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python3 -m automation.analytics
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/youtube-analytics.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Refresh YouTube analytics"
+          git push

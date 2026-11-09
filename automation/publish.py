@@ -12,6 +12,7 @@ import json
 import os
 import sys
 import time
+from pathlib import Path
 
 from automation import rules, youtube
 
@@ -21,6 +22,15 @@ def summary(p, video, h):
             f"madeForKids: {p['made_for_kids']}\ntags: {', '.join(p['tags'])}\n"
             f"video sha256: {rules.file_sha256(video)}\n--- description ---\n{p['description']}\n"
             f"--- approval hash ---\n{h}")
+
+
+def write_result(post_path, p, result):
+    """Record what actually went live so the routine and analytics can read it (no guessing)."""
+    from datetime import datetime, timezone
+    out = Path(post_path).with_suffix("").as_posix() + ".result.json"
+    rec = {"channel": p["channel"], "title": p["title"], "privacy": p["privacy"],
+           "publishedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"), **result}
+    Path(out).write_text(json.dumps(rec, indent=2) + "\n")
 
 
 def cmd_check(a):
@@ -60,6 +70,7 @@ def cmd_publish(a):
     result = {"videoId": vid, "url": f"https://youtu.be/{vid}", "privacy": st["privacyStatus"],
               "uploadStatus": st.get("uploadStatus")}
     print(json.dumps(result))
+    write_result(a.post, p, result)
     if os.environ.get("GITHUB_OUTPUT"):
         with open(os.environ["GITHUB_OUTPUT"], "a") as f:
             f.write(f"video_id={vid}\n")
