@@ -25,7 +25,7 @@ after midnight Pacific. `uploadLimitExceeded` -> human. Rate throttles -> backof
 1. Google Cloud: new project, enable YouTube Data API v3, OAuth client, authorize the
    channel once to get a refresh token. File the quota extension audit if usage nears 6
    uploads/day.
-2. Repo Settings > Secrets: `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`.
+2. Run `python3 -m automation.get_refresh_token` (needs YT_CLIENT_ID/YT_CLIENT_SECRET exported); it sets all three repo secrets.
 3. Repo Settings > Environments > new `publish-approval` > Required reviewers = you.
 4. Tell the routine to dispatch instead of calling `postiz.py --yes`.
 
