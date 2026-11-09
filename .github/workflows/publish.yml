@@ -10,7 +10,7 @@ on:
         description: "Payload path, e.g. channels/sleepy-meadow-stories/posts/03-sleepy-meadow-payload.json"
         required: true
       tag:
-        description: "Release tag holding video.mp4 (media is never committed)"
+        description: "Release tag in the private media repo holding video.mp4"
         required: true
 
 concurrency: publish
@@ -23,8 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Fetch video
-        env: { GH_TOKEN: "${{ github.token }}" }
-        run: gh release download "${{ inputs.tag }}" -p video.mp4 -D media
+        env: { GH_TOKEN: "${{ secrets.MEDIA_TOKEN }}" }   # read-only token for the PRIVATE media repo
+        run: gh release download "${{ inputs.tag }}" -p video.mp4 -D media --repo katherineparks141-eng/youtube-automation-media
       - name: Validate and summarize
         id: check
         run: |
@@ -47,8 +47,8 @@ jobs:
           exit 1
       - uses: actions/checkout@v4
       - name: Fetch video
-        env: { GH_TOKEN: "${{ github.token }}" }
-        run: gh release download "${{ inputs.tag }}" -p video.mp4 -D media
+        env: { GH_TOKEN: "${{ secrets.MEDIA_TOKEN }}" }   # read-only token for the PRIVATE media repo
+        run: gh release download "${{ inputs.tag }}" -p video.mp4 -D media --repo katherineparks141-eng/youtube-automation-media
       - name: Publish (fails if content differs from what was reviewed)
         id: pub
         env:
