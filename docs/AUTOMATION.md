@@ -30,3 +30,9 @@ after midnight Pacific. `uploadLimitExceeded` -> human. Rate throttles -> backof
 4. Tell the routine to dispatch instead of calling `postiz.py --yes`.
 
 Tests: `python3 -m unittest discover -s tests -t .`
+
+## Approval gate (important)
+Required reviewers on environments are not available for private repos on GitHub Free.
+Until the `publish-approval` environment really has you as a required reviewer, the publish job
+refuses to run (fails closed). Once it does, set repo variable `APPROVAL_GATE_CONFIRMED=true`.
+Options: GitHub Pro/Team (paid, needs Katie's dollar yes) or make the repo public.
