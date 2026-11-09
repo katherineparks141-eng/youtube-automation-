@@ -1,15 +1,34 @@
 # Forgotten & Found — pending approval log
 
-## 2026-11-09 — Publish flow rebuilt
-- Publishing moved to GitHub Actions + the direct YouTube API (see `docs/AUTOMATION.md`,
-  `CLAUDE.md` "Automation" section). Katie's approval is now a GitHub environment review
-  on the `publish` workflow, not a Katie HQ dashboard tap. No video for this channel is
-  currently staged or awaiting approval.
-- Today's scheduled run (this channel is due Mon/Thu) could not produce-and-stage a new
-  video this session: the interactive session has no working `gh` CLI and the GitHub MCP
-  tool set has no release-creation tool, so it cannot upload a finished video to the
-  private `youtube-automation-media` repo (required before `publish.yml` can be
-  dispatched). Flagged to Katie/engineering; nothing was produced or staged this run.
+## 2026-11-09 (12:38 PM ET) — First live scheduled run under the new flow: still blocked on media-repo access
+- STEP 1 (read-only): no runs waiting for Katie under the new flow. The only `publish.yml`
+  runs today are the 3 private end-to-end tests on `test/private-upload`
+  (2 succeeded, 1 failed) from this morning's build session, already covered in
+  `SESSION_HANDOFF.md`. No open GitHub issues. No `*.result.json` files exist yet for
+  either channel.
+- STEP 1.5 (read-only): `data/youtube-analytics.json` and the Katie HQ dashboard
+  (`youtube-analytics` doc) were already refreshed at 16:06-16:17 UTC this morning and
+  had not changed by this run — nothing new to pull (4,247 lifetime channel views, 1
+  subscriber, 6 videos, $0 spend/revenue, not monetized).
+- STEP 2/3: blocked before any production started. Independently re-confirmed this
+  morning's finding, now narrowed down: `gh` itself works fine for the main repo this
+  session (`gh run list`, `gh issue list`/`gh api .../issues` all succeeded) — the specific
+  problem is that `katherineparks141-eng/youtube-automation-media` is not in this
+  session's GitHub repository scope. Both `gh api repos/.../youtube-automation-media`
+  and the GitHub MCP tools return: "GitHub access to this repository is not enabled for
+  this session. Use add_repo to request access" — but no `add_repo` or `list_repos` tool
+  is exposed to this scheduled-task session to grant it (checked via ToolSearch with
+  several phrasings; none found).
+- Per CLAUDE.md's "don't route around a guardrail/tool failure" principle, did not
+  attempt a workaround (no alternate upload route exists — no Mac device bridge is
+  connected to this scheduled task either) and did not produce a new video this run,
+  since anything produced couldn't be staged regardless of production succeeding — same
+  call the 11:18 AM build session made for the same reason. Nothing produced or staged.
+- **Needs Katie/engineering**: add `katherineparks141-eng/youtube-automation-media` to
+  this scheduled task's GitHub repository access (currently only `youtube-automation-`
+  is in scope, per this session's "Repository Scope" list), or give the routine's session
+  some other way to create a GitHub Release on that repo. Until this is resolved, every
+  scheduled run will hit this same wall at STEP 3, for both channels.
 
 ## 2026-11-05 — "The Dancing Plague of 1518: When a City Danced Itself to Death"
 - Logline: In July 1518 a woman in Strasbourg began dancing and didn't stop; within
