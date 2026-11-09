@@ -1,5 +1,16 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-09 — Publish flow rebuilt
+- Publishing moved to GitHub Actions + the direct YouTube API (see `docs/AUTOMATION.md`,
+  `CLAUDE.md` "Automation" section). Katie's approval is now a GitHub environment review
+  on the `publish` workflow, not a Katie HQ dashboard tap. No video for this channel is
+  currently staged or awaiting approval.
+- Today's scheduled run (this channel is due Mon/Thu) could not produce-and-stage a new
+  video this session: the interactive session has no working `gh` CLI and the GitHub MCP
+  tool set has no release-creation tool, so it cannot upload a finished video to the
+  private `youtube-automation-media` repo (required before `publish.yml` can be
+  dispatched). Flagged to Katie/engineering; nothing was produced or staged this run.
+
 ## 2026-11-05 — "The Dancing Plague of 1518: When a City Danced Itself to Death"
 - Logline: In July 1518 a woman in Strasbourg began dancing and didn't stop; within
   a month nearly 400 people had joined her. Covers what the six surviving chronicle

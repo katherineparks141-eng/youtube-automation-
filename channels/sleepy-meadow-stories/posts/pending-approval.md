@@ -1,5 +1,18 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-09 — Publish flow rebuilt; this video's approval was NOT migrated
+- Publishing moved to GitHub Actions + the direct YouTube API (see `docs/AUTOMATION.md`,
+  `CLAUDE.md` "Automation" section). Katie's approval is now a GitHub environment review
+  on the `publish` workflow, not a Katie HQ dashboard tap.
+- The 2026-11-07 entry below ("The Bunny Who Didn't Want to Miss Anything") is still
+  **unpublished** — three `--yes` attempts via the old Postiz flow all failed on a YouTube
+  daily-quota error (see dashboard to-do `r20261107-youtube-production-01`, still open).
+  That approval was captured under the retired flow and was not carried over to the new
+  GitHub-environment-review gate. To actually publish this video now, it needs to be
+  re-staged under the new flow (payload + video uploaded as a GitHub Release in the
+  private `youtube-automation-media` repo, then `publish.yml` dispatched and approved on
+  GitHub) — this has not been done yet.
+
 ## 2026-11-07 — "The Bunny Who Didn't Want to Miss Anything" (APPROVED, publish attempt FAILED — YouTube quota)
 - Same video/script as the 2026-11-06 entry below — production was already complete, only
   staging was blocked. The device-bridge `device_commit_files` issue from 11/6 cleared on
