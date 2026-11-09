@@ -37,6 +37,14 @@ jobs:
     runs-on: ubuntu-latest
     environment: publish-approval   # required reviewer = Katie. This is the "yes".
     steps:
+      # Fail closed: required reviewers need a paid plan on private repos. Without them this
+      # job would run with no approval. Set repo variable APPROVAL_GATE_CONFIRMED=true only
+      # after confirming the environment has Katie as a required reviewer.
+      - name: Refuse to publish without a confirmed approval gate
+        if: vars.APPROVAL_GATE_CONFIRMED != 'true'
+        run: |
+          echo "::error::Approval gate not confirmed. See docs/AUTOMATION.md (Approval gate)."
+          exit 1
       - uses: actions/checkout@v4
       - name: Fetch video
         env: { GH_TOKEN: "${{ github.token }}" }
