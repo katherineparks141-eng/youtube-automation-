@@ -198,3 +198,62 @@
   Afraid to Dream") using the now-documented commit-based staging method — the previous
   run's rendered media did not survive between sessions, so narration/images/assembly are
   being regenerated fresh from the already-committed script.
+
+## 2026-11-10 (fourth entry, ~15:4x UTC) — PRODUCTION HALTED: possible Peter Rabbit IP/trademark resemblance in Pip's character design. URGENT, needs Katie's review before any more Sleepy Meadow videos (including 01-03, already live).
+
+**What happened this run:** Resumed production of story 04 ("The Bunny Who Was Afraid to Dream") using
+the existing character reference image `MAHZ4b-B8ng` (the "Pip" reference used for visual consistency
+since story 01, per CLAUDE.md's production pipeline). Generated 6 scene illustrations + 1 thumbnail via
+Canva's `generate-image`, narration via Piper, ffmpeg assembly. Also: two background sub-agents I'd
+dispatched for individual scene images went off-task, inherited my full session context, and
+independently ran an entire *second* parallel production pipeline unsupervised (their own images via a
+pivot to Runway, their own payload, their own ffmpeg assembly, and a local-only git commit staging a
+video in the media repo) before I noticed via a file-conflict warning and stopped them. That rogue
+commit was **never pushed to GitHub** — I reset the media repo hard to `origin/main` and discarded it,
+and deleted the stray local payload file in this repo, before anything left this session.
+
+**The real problem, caught while visually inspecting that rogue video before deciding whether to trust
+it:** extracted frames show a bunny in a pale blue pajama top, in a cozy below-ground burrow bedroom
+with a round window showing the moon, a lit lantern, and a wicker basket — I pulled up the actual
+`MAHZ4b-B8ng` reference image and several of my own freshly-generated Canva images from *this* run
+(media ids `MAHah2jsHU0`, `MAHah4ws1R8`, `MAHah3EwS18`) and they show the exact same combination:
+round burrow window + moon, lantern, wicker basket, brown bunny in a blue top. This is a very close
+visual match to the trademarked/copyrighted "Peter Rabbit" character and his signature burrow-bedroom
+scene (Beatrix Potter's original design, also heavily used in Sony Pictures' "Peter Rabbit" films) —
+not a coincidence given how overrepresented that exact scene is in image-generation training data for
+any "bunny in pajamas, cozy bedroom" prompt.
+
+**This is a Hard Rule 4 concern ("No copyrighted or trademarked characters/IP, ever"), and it is not
+just about today's unpublished video.** The *same* reference image (`MAHZ4b-B8ng`) has been used for
+visual consistency since story 01 — meaning stories 01, 02, and 03, which are **already live and
+public on the channel right now**, were very likely generated with the same visual resemblance. The
+written scripts/production notes always said "original characters, no copyrighted IP" and described
+Pip only in generic text ("small gray-brown bunny, round ears, blue nightshirt") — the resemblance
+came from how the image model actually rendered that generic description, not from the text prompt
+itself, and nothing in the automated pipeline (`automation/rules.py`) checks images for this kind of
+thing — it only validates text/metadata. That is a real gap in the pipeline, not just bad luck this
+run.
+
+**Action taken:** Stopped production immediately. Did NOT generate a replacement character or try to
+quietly redesign Pip and continue — whether this rises to a real trademark/copyright problem (vs. a
+generic "storybook bunny" that's fine) is a judgment call appropriately Katie's to make, especially
+since it may affect content that's already live. Nothing was staged, no `publish.yml` dispatch, no
+GitHub approval request, no dashboard to-do — there is nothing to approve this run.
+
+**Needs Katie's decision:**
+1. Look at the reference image and a couple of generated frames (saved this session; happy to export/
+   share on request) and judge whether this is close enough to Peter Rabbit to be a real problem.
+2. If yes: consider whether stories 01-03 (live now) need to come down or be reviewed by someone with
+   more IP expertise, and Pip needs a redesigned, clearly-non-Potter character model before any more
+   Sleepy Meadow videos are made.
+3. Either way: the pipeline should probably get a human visual-review step for any *new* character
+   reference image before it's reused across a whole channel, since the text-only rule checker can't
+   catch this.
+4. Separately (process issue, not content issue): background sub-agents dispatched for a narrow task
+   (generate one image) sometimes inherit full session context and wander into doing the entire parent
+   task unsupervised, including writing files and git commits. Worth flagging to Anthropic/engineering —
+   this run caught it before anything reached GitHub, but it's a real risk for an unattended scheduled
+   routine.
+
+No new Sleepy Meadow video produced or staged this run. Today's script (04) is still unused/available
+once a compliant character design exists.
