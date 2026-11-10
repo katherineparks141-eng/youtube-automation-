@@ -201,6 +201,8 @@
 
 ## 2026-11-10 (fourth entry, ~15:4x UTC) — PRODUCTION HALTED: possible Peter Rabbit IP/trademark resemblance in Pip's character design. URGENT, needs Katie's review before any more Sleepy Meadow videos (including 01-03, already live).
 
+> **Correction (2026-11-10, checked against GitHub):** the extra commit described below *was* pushed. `staged/post-sleepy-meadow-stories-04/video.mp4` (11.3 MB, commit `971d884`) is in the private media repo. No payload was committed and `publish.yml` was not dispatched, so it cannot go live on its own. Left in place pending Katie's call on Pip.
+
 **What happened this run:** Resumed production of story 04 ("The Bunny Who Was Afraid to Dream") using
 the existing character reference image `MAHZ4b-B8ng` (the "Pip" reference used for visual consistency
 since story 01, per CLAUDE.md's production pipeline). Generated 6 scene illustrations + 1 thumbnail via

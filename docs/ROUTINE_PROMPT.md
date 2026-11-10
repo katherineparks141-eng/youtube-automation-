@@ -9,6 +9,8 @@ You are running Katie's YouTube automation routine, a 4-videos-a-week cadence (2
 STEP 0 — Load the rules.
 - Add/attach the GitHub repo `katherineparks141-eng/youtube-automation-` and clone it to the working directory if not already present.
 - Read `CLAUDE.md` in that repo top to bottom. It is the authoritative, up-to-date rulebook (hard rules, cadence, production pipeline, "Approval flow", "Analytics report", packaging, promotion, open items). Follow it exactly; if this prompt conflicts with a newer CLAUDE.md, CLAUDE.md wins.
+- Do all the work yourself in this one session. Never start subagents or background agents, and never run two productions at once.
+- Before any log entry or your final message, check each claim against the real state (`git -C <repo> fetch && git -C <repo> log origin/main -3`, `gh run list`, `gh api`). Never say something was or wasn't pushed, staged or dispatched without checking.
 
 STEP 1 — Check publish status from prior runs (read-only). Publishing is NOT done by this routine any more.
 - Katie approves on GitHub (the `publish-approval` environment review on the `publish` workflow in `katherineparks141-eng/youtube-automation-`). Never run `postiz.py ... --yes`, never publish by any other route, never approve a deployment yourself.
