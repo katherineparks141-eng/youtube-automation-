@@ -1,6 +1,6 @@
 # Scheduled routine prompt (new publish flow)
 
-Paste this as the prompt of the routine "YouTube automation — video production (4/week)" (trigger trig_01Cqhoxe6NxbohqsMRQrPLgb). Needs: `gh` in the routine session with write access to the private repo `youtube-automation-media` and workflow dispatch on this repo.
+Paste this as the prompt of the routine "YouTube automation — video production v2 (4/week)" (trigger trig_012ew37Hpa53gcRdTRL4TZ3q; has both repos attached. The old trigger trig_01Cqhoxe6NxbohqsMRQrPLgb is paused). Needs: `gh` in the routine session with write access to the private repo `youtube-automation-media` and workflow dispatch on this repo.
 
 ---
 
