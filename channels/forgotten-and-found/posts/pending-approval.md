@@ -1,5 +1,13 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-10 (12:30 ET scheduled run) — STEP 1 only: nothing waiting, no production today (not F&F's day)
+- STEP 1 (read-only): no `publish.yml` runs waiting for Katie's approval (only the 3
+  `test/private-upload` test dispatches from 2026-11-09 exist). No open GitHub issues
+  concerning this channel (issue #14 is Sleepy Meadow/Pip only). No `*.result.json` files.
+- Per cadence (Forgotten & Found: Mon/Thu), today is Tuesday — Sleepy Meadow's turn. No new
+  F&F production this run; see `sleepy-meadow-stories/posts/pending-approval.md` for today's
+  production (story 04, new Pip design, awaiting Katie's approval on GitHub).
+
 ## 2026-11-10 (~00:42 UTC) — STEP 1 only: nothing waiting, no production today (not F&F's day)
 - STEP 1 (read-only): no `publish.yml` runs waiting for Katie's approval under the new
   flow — the only runs are the 3 `test/private-upload` test dispatches from 2026-11-09.
