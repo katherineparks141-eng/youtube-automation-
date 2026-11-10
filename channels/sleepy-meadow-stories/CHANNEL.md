@@ -16,3 +16,7 @@ Playbook doc.
   unlike in most adult niches.
 - **Character consistency:** generate one reference image per character, then pass its
   Canva media id as `imageReferences` on every later image of that character.
+- **Pip redesign (Katie, 2026-11-10):** the old look (brown bunny, blue top, burrow with
+  round window, lantern, basket) was too close to Peter Rabbit. Use only the new design in
+  `character-reference.json`, and check every image against its `doNot` list. Stories 01-03
+  use the old look; Katie is reviewing them.

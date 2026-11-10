@@ -44,7 +44,7 @@ when you're not facing it alone."
 
 Pip closed his eyes and pictured it exactly like Oona said: Mama Rabbit on one side, Oona
 perched on the other, his blanket wrapped snug around his paw. He held the picture
-steady, the way you'd hold a lantern. If the shadow came back tonight, he wouldn't be the
+steady, the way you'd hold a warm cup. If the shadow came back tonight, he wouldn't be the
 only one there to meet it. His shoulders loosened. His ears stopped straining to listen
 for trouble. And somewhere between one slow breath and the next, Pip drifted off still
 holding his little picture of the three of them together — and this time, when a dream
@@ -63,10 +63,11 @@ Goodnight, little one. Sleep soft, sleep safe. We'll see you in the meadow again
 
 ---
 **Production notes:** Original characters/world — no copyrighted IP. Same recurring cast
-as stories 1-3: Pip (small gray-brown bunny, round ears, blue nightshirt), Mama Rabbit, and
-Oona the owl. Visuals: soft painterly/storybook illustration style, pastel night palette
-(deep blues, lavender, warm amber window-light) — identical palette and character models to
-stories 1-3 for viewer continuity. New visual motif: a soft, non-scary "shadow" shape (kept
+as stories 1-3, but with Pip's NEW design (Katie, 2026-11-10): follow
+`character-reference.json` exactly (cream bunny, one lop ear, ginger eye patch, mustard
+scarf, willow-hollow nest; never brown, blue, a burrow, round window, lantern or basket).
+Mama Rabbit and Oona the owl as described there. Visuals: soft painterly storybook style,
+the pastel twilight palette in `character-reference.json`. New visual motif: a soft, non-scary "shadow" shape (kept
 gentle/rounded, never sharp or menacing, per the no-exaggerated/no-frightening-content
 standard for this channel) that shrinks and softens across the back half of the story as
 Pip pictures his three guardians beside him; final frames show Pip asleep with faint,

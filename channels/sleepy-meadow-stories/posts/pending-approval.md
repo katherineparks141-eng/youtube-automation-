@@ -1,5 +1,15 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-10 — Katie's decision on the Pip / Peter Rabbit halt: REDESIGN, production may resume
+- Katie chose to redesign Pip. The new design is in `character-reference.json` (cream bunny,
+  one lop ear, ginger eye patch, mustard scarf, willow-hollow nest, twilight palette) with a
+  `doNot` list. The halt below is lifted for NEW videos that use only the new design.
+- The next run makes a fresh Pip reference image, checks it against `doNot`, saves its id,
+  then produces story 04. Never reuse `MAHZ4b-B8ng`.
+- Stories 01-03 (live) use the old look. Katie is reviewing them herself; don't change them.
+- `staged/post-sleepy-meadow-stories-04/video.mp4` in the media repo is the old-look video.
+  Don't publish it; stage the new video under the next free tag (e.g. `post-sleepy-meadow-stories-04b`).
+
 ## 2026-11-10 (second run, ~00:50 UTC) — "The Bunny Who Was Afraid to Dream" PRODUCED, STAGING BLOCKED (gh release create denied for this session type)
 - Logline: Pip is scared to close his eyes after a frightening dream; Oona the owl
   teaches him to picture his three guardians (Mama Rabbit, Oona, his blanket) standing
