@@ -184,3 +184,17 @@
   Surface"), so Katie ran it herself from her Mac terminal:
   `postId cmw11tkjx01z7l307hh6g9xvy` (integration `cmvy6plen09q6nk0750rg2fha`).
   Confirmed live public.
+
+## 2026-11-10 (third run, ~15:xx UTC) — STEP 1 re-check + resuming production of story 04 with the fixed staging method
+- STEP 1 (read-only): confirmed again — `gh run list --workflow publish.yml` shows only the
+  3 `test/private-upload` test dispatches from 2026-11-09 (2 success, 1 failure, all
+  `workflow_dispatch` test runs, none a real production payload). No open GitHub issues.
+  No `*.result.json` files for either channel. Nothing is waiting for Katie's approval.
+- Noticed `CLAUDE.md`/`docs/AUTOMATION.md` were updated today (commits #12/#13, after the
+  prior run's blocker) to retire GitHub Releases for staging entirely: the private media
+  repo now takes a direct `staged/post-<channel>-<NN>/video.mp4` commit instead of
+  `gh release create` (which this session type is denied). That was exactly the blocker
+  the ~00:50 UTC run hit. Proceeding to redo production of story 04 ("The Bunny Who Was
+  Afraid to Dream") using the now-documented commit-based staging method — the previous
+  run's rendered media did not survive between sessions, so narration/images/assembly are
+  being regenerated fresh from the already-committed script.
