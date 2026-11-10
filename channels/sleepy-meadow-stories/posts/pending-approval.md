@@ -1,5 +1,46 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-10 (second run, ~00:50 UTC) — "The Bunny Who Was Afraid to Dream" PRODUCED, STAGING BLOCKED (gh release create denied for this session type)
+- Logline: Pip is scared to close his eyes after a frightening dream; Oona the owl
+  teaches him to picture his three guardians (Mama Rabbit, Oona, his blanket) standing
+  beside him before sleep, so a shadow doesn't feel so big when he's not facing it
+  alone. Nightmares/fear-of-bad-dreams theme — distinct from stories 1 (fear of dark),
+  2 (busy thoughts), 3 (bedtime FOMO). Pip pillar, 4th story.
+- Script: `scripts/04-the-bunny-who-was-afraid-to-dream.md` (already committed).
+- **Fully produced this run**: Piper narration (`en_US-amy-medium`, voices pulled from
+  the media repo per commit `cd45e81` — narration blocker from earlier today is
+  resolved), 6 Canva-generated scene illustrations using Pip's existing character
+  reference (`MAHZ4b-B8ng`) for consistency, 1 dedicated calm thumbnail (family group,
+  not exaggerated, per the no-exaggerated-thumbnails rule), ffmpeg Ken Burns assembly.
+  Runtime: 3:12 (192.48s).
+- Payload drafted and validated clean via `python3 -m automation.publish check`
+  (`channels/sleepy-meadow-stories/posts/04-sleepy-meadow-payload.json`): `type:
+  "public"`, `selfDeclaredMadeForKids: "yes"` (hard rule 2), AI-disclosure line
+  present, 4 hashtags in description (one in the first ~55 characters), none identical
+  to stories 1-3's sets. Approval hash:
+  `fff46b0ba66f04669a2ea6032de9b3fee43af24f5929e639da06b27a2c432892`.
+- **BLOCKED at staging**: `gh release create post-sleepy-meadow-stories-04 video.mp4
+  --repo katherineparks141-eng/youtube-automation-media` returned `HTTP 403: Creating,
+  editing, or deleting releases is not permitted for this session type.` (`gh repo
+  view` on the same repo works fine — this is specific to release creation, not
+  general repo access.) Per CLAUDE.md's "don't route around a guardrail/tool failure"
+  principle and this run's explicit stop condition for a gated tool, did not try an
+  alternate upload route (no other tool was attempted). **Nothing staged**: the
+  payload JSON was written locally but not committed/pushed (committing it without a
+  matching release would point `publish.yml` at a tag that doesn't exist), no GitHub
+  Release was created, `publish.yml` was not dispatched, and no approval to-do was
+  created — there is nothing real yet for Katie to approve.
+- The rendered video, 6 illustrations, and thumbnail remain only in this cloud
+  session's working directory (media is gitignored by design) and are not guaranteed
+  recoverable in a later session; a future run may need to re-render from the script,
+  same as the 2026-11-06 precedent for this channel.
+- **Needs Katie/engineering**: find out why this session type is denied
+  `releases:write` on `youtube-automation-media` specifically (repo *view* access
+  works) and whether a different session type, token scope, or GitHub App permission
+  can be granted for the scheduled YouTube-automation task specifically — without
+  broadening write access elsewhere. Until resolved, no new video can be staged for
+  approval regardless of how smoothly production itself runs.
+
 ## 2026-11-10 (second run, ~00:42 UTC) — STEP 1: nothing waiting; narration blocker resolved, resuming production
 - STEP 1 (read-only): confirmed again — only the 3 `test/private-upload` `publish.yml`
   test runs from 2026-11-09 exist (no real payload dispatched yet), no open GitHub
