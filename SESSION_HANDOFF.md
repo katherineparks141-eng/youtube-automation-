@@ -1,3 +1,11 @@
+## 2026-11-10 11:05 · Routine fixed, Pip redesigned
+**Done:** Routine `trig_012ew37Hpa53gcRdTRL4TZ3q` (old one paused) has both repos, can't start helper agents, and must check git/gh before logging. Voices come from the media repo `voices/` (#11). Videos are committed as `staged/<tag>/video.mp4` and `automation/fetch_video.sh` reads them (#12). Log correction (#15). Pip redesigned in `character-reference.json` (#16).
+**Decided by Katie:** redesign Pip (cream, one lop ear, ginger eye patch, mustard scarf, willow hollow; never brown/blue/burrow/round window/lantern/basket). Keep the routine running.
+**Next:** check today's 12:30 run: new Pip reference id saved, video staged, `publish.yml` run waiting for approval. The publish dispatch and Actions fetch are still unproven.
+**Waiting on:** Katie reviewing live Sleepy Meadow 01-03 (issue #14); `lessac` voice is research-only licensed (to-do added).
+**Watch out:** `staged/post-sleepy-meadow-stories-04/` is the old-look video. Never publish it.
+**Branch/uncommitted:** main · 0 uncommitted · 0 unpushed · runs to check: routine run 2026-11-10 12:30 ET
+
 ## 2026-11-10 09:15 · Routine fixes: voices + video staging
 **Done:** Piper voices are now in the private media repo `voices/` (PR #11), and narration works in the cloud. Cloud sessions get HTTP 403 creating GitHub Releases, so the routine now commits `staged/<tag>/video.mp4` to the media repo. `publish.yml` reads it via `automation/fetch_video.sh`, falling back to a release for old tags (PR #12). Routine `trig_012ew37Hpa53gcRdTRL4TZ3q` prompt updated to match.
 **Unproven:** the routine pushing the video file, `gh workflow run` from the cloud session, and the Actions fetch with `MEDIA_TOKEN`. First real test is today's 12:30 run.
@@ -11,9 +19,3 @@
 **Next:** Fix voice access (own copy in the private media repo, or allow the host in the environment). Then re-run. Canva, upload and `publish.yml` dispatch are still unproven in the new routine.
 **Branch/uncommitted:** docs/routine-v2 · runs to check: next routine run
 
-## 2026-11-09 11:40 · Publisher rebuild
-**Done:** PRs 1-8 merged. Direct YouTube API publisher (`automation/`), hash-bound approval via `publish-approval` environment (you = required reviewer; repo made public for that), private media repo `youtube-automation-media` read with `MEDIA_TOKEN`, daily `analytics.yml`, `.result.json` written back after publish, routine prompt in `docs/ROUTINE_PROMPT.md` (pasted into routine, live). Google Cloud project `youtube-automation` (app in production). Two private end-to-end tests passed; test artifacts archived.
-**Decided by Katie:** Option 1 (chat routine produces, code publishes). Approval = GitHub, not dashboard. Repo public.
-**Next:** Watch first routine run (Mon 12:37 PM ET). If it can't reach the media repo or start workflows via `gh`, fix that access. Then stage the stuck Sleepy Meadow video 03 via the new flow (media is on Katie's Mac) or drop it. `MEDIA_TOKEN` expires 2027-02-07.
-**Waiting on:** first live routine run. **Watch out:** never publish outside `publish.yml`; media must stay in the private repo; analytics for new videos only from `data/youtube-analytics.json`.
-**Branch/uncommitted:** main · 0 uncommitted · 0 unpushed · runs to check: routine run today
