@@ -29,7 +29,7 @@ STEP 2 — Decide which channel is due today and produce ONE new video end-to-en
 STEP 3 — Stage the video in PRIVATE storage (never a public repo, never Postiz).
 - Build the payload JSON per the existing examples in `channels/*/posts/` (Postiz-format fields are still used by the validator): correct `selfDeclaredMadeForKids` per channel, `"type": "public"`, AI-disclosure line, 3-5 hashtags, sources for Forgotten & Found. Save it as the next-numbered `channels/<channel>/posts/<NN>-<slug>-payload.json`.
 - Validate locally: `python3 -m automation.publish check <payload> <video.mp4>`. If it reports RULE VIOLATIONS, fix the payload and re-run; do not stage a video that fails.
-- Upload the video to the PRIVATE media repo: `gh release create post-<channel>-<NN> <video.mp4> --repo katherineparks141-eng/youtube-automation-media --title post-<channel>-<NN> --notes "staged"` (asset must be named `video.mp4`).
+- Upload the video to the PRIVATE media repo by committing it (cloud sessions can't create GitHub Releases). It must be under 95 MB; if it is bigger, stop and report. In the `youtube-automation-media` checkout (cloned next to this repo): `mkdir -p staged/post-<channel>-<NN> && cp <video.mp4> staged/post-<channel>-<NN>/video.mp4 && git add staged && git commit -m "Stage post-<channel>-<NN>" && git push`. Never put the video in the public repo.
 - Commit and push the payload + script to `main` of `katherineparks141-eng/youtube-automation-`.
 
 STEP 4 — Ask Katie to approve on GitHub (the approval is the environment review, not a dashboard tap).

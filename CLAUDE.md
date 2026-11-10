@@ -48,7 +48,7 @@ file is the *execution* rules, that doc is the *strategy*. Keep both in sync.
 ## Automation (2026-11-09)
 
 Publishing moved to GitHub Actions + direct YouTube API. Routine: produce, commit payload,
-upload `video.mp4` to a Release `post-<channel>-<NN>` in the PRIVATE repo `youtube-automation-media` (never a public repo), run `gh workflow run publish.yml -f
+commit `video.mp4` as `staged/post-<channel>-<NN>/video.mp4` in the PRIVATE repo `youtube-automation-media` (never a public repo), run `gh workflow run publish.yml -f
 post=<payload> -f tag=<tag>`. Katie's approval is the `publish-approval` environment
 review on GitHub, not a dashboard tap. Never run `--yes` or publish any other way. See
 `docs/AUTOMATION.md`. The Postiz/dashboard sections below are legacy until setup is done.
