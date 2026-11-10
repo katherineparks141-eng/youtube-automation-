@@ -4,9 +4,9 @@
     "pip": {
       "description": "Small cream-colored bunny with one floppy (lop) ear and one upright ear, a soft ginger patch around his left eye, a short fluffy tail and big kind eyes. Wears only a mustard-yellow knitted scarf, no shirt, jacket or pajamas. Sleeps in a nest of thistledown inside the hollow of an old willow tree at the meadow's edge; the hollow has an arched opening hung with trailing willow leaves, and soft light comes from glowing mushrooms and fireflies.",
       "doNot": "Never draw Pip brown or gray-brown, in anything blue, or in a jacket, shirt or pajamas. Never use an underground burrow, a round window, a lantern or a wicker basket. These together read as Peter Rabbit (Katie, 2026-11-10).",
-      "canvaReferenceMediaId": null,
+      "canvaReferenceMediaId": "MAHaibwGBwg",
       "previousReferenceMediaId": "MAHZ4b-B8ng",
-      "note": "Redesigned 2026-11-10 (Katie): the old look was too close to Peter Rabbit. The next run must generate ONE fresh reference image from this description, check it against doNot, save its Canva media id here, then pass it as imageReferences for every Pip image. Never use previousReferenceMediaId."
+      "note": "Redesigned 2026-11-10 (Katie). Fresh reference image MAHaibwGBwg generated 2026-11-10 (routine run) and checked against doNot: cream bunny, one lop ear, mustard scarf, willow hollow with trailing leaves, glowing mushrooms/fireflies, twilight palette — no blue, no jacket/shirt, no burrow, no round window, no lantern, no basket. Used as imageReferences for story 04. Never use previousReferenceMediaId."
     },
     "mama_rabbit": {
       "description": "Pip's mother: same cream bunny art style, slightly larger, both ears upright, a soft ginger muzzle, wears a sage-green knitted shawl. Never brown, never in blue, never in an apron or dress.",

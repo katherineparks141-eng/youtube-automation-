@@ -1,0 +1,30 @@
+{
+  "type": "now",
+  "date": "2026-11-10T19:30:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "Pip is scared to close his eyes after a scary dream. #SleepyMeadowStories Oona the owl teaches him a gentle trick: picture the ones who make him feel safe, standing right beside him — then a shadow doesn't feel so big when he's not facing it alone.\n\nThis video uses AI narration and AI-generated illustrations.\n\n#BedtimeStory #PipTheBunny #ToddlerBedtime #NightmareHelp",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Bunny Who Was Afraid to Dream | A Sleepy Meadow Bedtime Story",
+        "type": "public",
+        "selfDeclaredMadeForKids": "yes",
+        "tags": [
+          { "value": "bedtime story for nightmares", "label": "bedtime story for nightmares" },
+          { "value": "toddler scared of nightmares", "label": "toddler scared of nightmares" },
+          { "value": "scared of bad dreams toddler", "label": "scared of bad dreams toddler" },
+          { "value": "calm down after a nightmare", "label": "calm down after a nightmare" },
+          { "value": "bunny bedtime story for kids", "label": "bunny bedtime story for kids" }
+        ]
+      }
+    }
+  ]
+}
