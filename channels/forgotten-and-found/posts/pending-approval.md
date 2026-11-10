@@ -1,5 +1,12 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-10 (~00:42 UTC) — STEP 1 only: nothing waiting, no production today (not F&F's day)
+- STEP 1 (read-only): no `publish.yml` runs waiting for Katie's approval under the new
+  flow — the only runs are the 3 `test/private-upload` test dispatches from 2026-11-09.
+  No open GitHub issues. No `*.result.json` files yet for either channel.
+- Per cadence (Forgotten & Found: Mon/Thu, Sleepy Meadow: Tue/Fri), today is Tuesday —
+  Sleepy Meadow Stories' turn, not Forgotten & Found's. No new F&F production this run.
+
 ## 2026-11-09 (12:38 PM ET) — First live scheduled run under the new flow: still blocked on media-repo access
 - STEP 1 (read-only): no runs waiting for Katie under the new flow. The only `publish.yml`
   runs today are the 3 private end-to-end tests on `test/private-upload`

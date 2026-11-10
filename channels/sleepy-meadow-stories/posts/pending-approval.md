@@ -1,5 +1,17 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-10 (second run, ~00:42 UTC) — STEP 1: nothing waiting; narration blocker resolved, resuming production
+- STEP 1 (read-only): confirmed again — only the 3 `test/private-upload` `publish.yml`
+  test runs from 2026-11-09 exist (no real payload dispatched yet), no open GitHub
+  issues, no `*.result.json` files for either channel.
+- The narration blocker logged below (huggingface.co denied) is now resolved: commit
+  `cd45e81` ("Use voice models from the private media repo") updated
+  `pipeline/setup_tts_voices.sh` to copy the two Piper `.onnx` voice models from
+  `youtube-automation-media/voices/` instead of fetching from Hugging Face, and both
+  files are present there (`en_US-amy-medium.onnx`, `en_US-lessac-medium.onnx`).
+  Resuming production of story 04 ("The Bunny Who Was Afraid to Dream", script already
+  written below) from the narration step forward this run.
+
 ## 2026-11-10 — Scheduled run: PRODUCTION BLOCKED at narration step, nothing staged
 - STEP 1 (read-only): nothing waiting under the new GitHub-environment-review flow — the
   only `publish.yml` runs are the 3 private end-to-end tests on `test/private-upload`
