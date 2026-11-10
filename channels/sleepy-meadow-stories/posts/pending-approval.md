@@ -1,5 +1,36 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-10 — Scheduled run: PRODUCTION BLOCKED at narration step, nothing staged
+- STEP 1 (read-only): nothing waiting under the new GitHub-environment-review flow — the
+  only `publish.yml` runs are the 3 private end-to-end tests on `test/private-upload`
+  from 2026-11-09 (already logged in `SESSION_HANDOFF.md`). No open GitHub issues. No
+  `*.result.json` files exist for either channel yet. Note: `youtube-automation-media`
+  (the private media repo) is now reachable from this scheduled-task session via
+  `add_repo` — the 2026-11-09 block on that ("no add_repo tool exposed") appears
+  resolved, which matters for the next run that gets past production.
+- STEP 2: today is Tuesday, so Sleepy Meadow Stories was due. Wrote the script for story
+  04, "The Bunny Who Was Afraid to Dream" (Pip pillar — nightmares/fear-of-bad-dreams
+  theme, distinct from stories 1-3; same cast/palette). Saved to
+  `scripts/04-the-bunny-who-was-afraid-to-dream.md`.
+- **Blocked immediately after**: Piper TTS itself installed fine (`pip install
+  piper-tts`), but `pipeline/setup_tts_voices.sh`'s voice-model download failed —
+  `huggingface.co` is denied by this session's network egress policy (confirmed via the
+  proxy status endpoint: explicit `connect_rejected` / 403 on `huggingface.co:443`, not
+  a transient error). Neither `en_US-lessac-medium` nor `en_US-amy-medium` could be
+  fetched, and no cached copy of either voice model exists anywhere in this environment.
+  Per CLAUDE.md, narration stays on Piper always (Runway/Higgsfield can't do speech on
+  the free tier, and Katie decided 11/1 not to pay to unlock either) — there is no
+  permitted substitute, so no narration, no visuals, no assembly, and no staging were
+  attempted. Per the "don't route around a guardrail/tool failure" principle, did not
+  try an alternate download mirror for the voice models.
+- **Nothing produced or staged this run** beyond the script. No dashboard/GitHub
+  approval item created (there is nothing real yet to approve).
+- **Needs Katie/engineering**: allow outbound access to `huggingface.co` for this
+  scheduled task's network policy (or pre-bundle the two Piper `.onnx` voice models
+  somewhere already reachable from this environment, e.g. committed as a release asset
+  on `youtube-automation-media` or another allowed host) — otherwise every future run
+  will hit this same wall at the narration step, for both channels.
+
 ## 2026-11-09 — Publish flow rebuilt; this video's approval was NOT migrated
 - Publishing moved to GitHub Actions + the direct YouTube API (see `docs/AUTOMATION.md`,
   `CLAUDE.md` "Automation" section). Katie's approval is now a GitHub environment review
