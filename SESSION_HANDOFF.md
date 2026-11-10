@@ -1,3 +1,10 @@
+## 2026-11-10 09:15 · Routine fixes: voices + video staging
+**Done:** Piper voices are now in the private media repo `voices/` (PR #11), and narration works in the cloud. Cloud sessions get HTTP 403 creating GitHub Releases, so the routine now commits `staged/<tag>/video.mp4` to the media repo. `publish.yml` reads it via `automation/fetch_video.sh`, falling back to a release for old tags (PR #12). Routine `trig_012ew37Hpa53gcRdTRL4TZ3q` prompt updated to match.
+**Unproven:** the routine pushing the video file, `gh workflow run` from the cloud session, and the Actions fetch with `MEDIA_TOKEN`. First real test is today's 12:30 run.
+**Flag for Katie:** the `lessac` voice (Forgotten & Found) is trained on recordings licensed for "Research Purposes only". Check before monetizing.
+**Next:** check the 12:30 run (`list_runs` on the routine, then `publish.yml` runs). Sleepy Meadow 04 video from last night was not saved; today's run makes a new one.
+**Branch/uncommitted:** main · runs to check: routine run 2026-11-10 12:30 ET
+
 ## 2026-11-09 19:40 · New routine with media repo access
 **Done:** Old routine (`trig_01Cqhoxe6NxbohqsMRQrPLgb`) could not reach the media repo, and its repo list can't be safely edited, so it's paused. New routine `trig_012ew37Hpa53gcRdTRL4TZ3q` has both repos, same schedule and prompt, Canva + Runway connectors, Default cloud environment. Test run attached both repos.
 **Blocked:** `huggingface.co` is denied in the Default cloud environment, so Piper voices can't download and no video gets made. Sleepy Meadow script 04 is written; nothing staged.
