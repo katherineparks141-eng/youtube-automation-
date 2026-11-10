@@ -1,5 +1,5 @@
-# Approval-gated publish. The routine dispatches this with a post path and the release
-# tag holding its video. Job 1 validates and prints exactly what would go live. Job 2 uses
+# Approval-gated publish. The routine dispatches this with a post path and the tag of its
+# video (staged/<tag>/video.mp4 in the private media repo). Job 1 validates and prints exactly what would go live. Job 2 uses
 # the `publish-approval` environment, which requires Katie's review (GitHub mobile works),
 # re-checks the content hash, then uploads and verifies. No LLM classifier in the loop.
 name: publish
@@ -10,7 +10,7 @@ on:
         description: "Payload path, e.g. channels/sleepy-meadow-stories/posts/03-sleepy-meadow-payload.json"
         required: true
       tag:
-        description: "Release tag in the private media repo holding video.mp4"
+        description: "Tag of the staged video: staged/<tag>/video.mp4 in the private media repo"
         required: true
 
 concurrency: publish
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch video
         env: { GH_TOKEN: "${{ secrets.MEDIA_TOKEN }}" }   # read-only token for the PRIVATE media repo
-        run: gh release download "${{ inputs.tag }}" -p video.mp4 -D media --repo katherineparks141-eng/youtube-automation-media
+        run: automation/fetch_video.sh "${{ inputs.tag }}"
       - name: Validate and summarize
         id: check
         run: |
@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch video
         env: { GH_TOKEN: "${{ secrets.MEDIA_TOKEN }}" }   # read-only token for the PRIVATE media repo
-        run: gh release download "${{ inputs.tag }}" -p video.mp4 -D media --repo katherineparks141-eng/youtube-automation-media
+        run: automation/fetch_video.sh "${{ inputs.tag }}"
       - name: Publish (fails if content differs from what was reviewed)
         id: pub
         env:

@@ -6,8 +6,8 @@ no Mac bridge, no auto-mode classifier at publish time).
 **Split of work**
 - **Produce** (script, Piper, Canva/Runway images, ffmpeg): the scheduled Claude routine, per
   `CLAUDE.md`. Canva is an MCP tool, so this step stays in Claude. Output: payload JSON
-  committed to `channels/<ch>/posts/`, video uploaded to a GitHub Release tagged
-  `post-<channel>-<NN>` as `video.mp4`.
+  committed to `channels/<ch>/posts/`, video committed to the private media repo as
+  `staged/post-<channel>-<NN>/video.mp4`.
 - **Approve + publish**: `.github/workflows/publish.yml`. Routine dispatches it
   (`gh workflow run publish.yml -f post=<payload> -f tag=<tag>`). Job 1 prints exactly what
   would go live. Job 2 waits on the `publish-approval` environment (Katie approves in
@@ -38,12 +38,14 @@ refuses to run (fails closed). Once it does, set repo variable `APPROVAL_GATE_CO
 Options: GitHub Pro/Team (paid, needs Katie's dollar yes) or make the repo public.
 
 ## Private media
-Videos live in releases of the private repo `katherineparks141-eng/youtube-automation-media`
+Videos live in the private repo `katherineparks141-eng/youtube-automation-media`
 (never this public repo). The publisher reads them with secret `MEDIA_TOKEN`: a fine-grained
 personal access token limited to that one repo, permission Contents: read-only. Create it at
 github.com/settings/personal-access-tokens/new, then run (it prompts, hidden):
 `gh secret set MEDIA_TOKEN --repo katherineparks141-eng/youtube-automation-`
-Routine upload: `gh release create post-<ch>-<NN> video.mp4 --repo katherineparks141-eng/youtube-automation-media`.
+Routine upload: commit `staged/post-<ch>-<NN>/video.mp4` to that repo and push (under 95 MB; GitHub's hard limit is 100 MB).
+Cloud routine sessions get HTTP 403 on creating releases, so releases are no longer used for new
+videos. `automation/fetch_video.sh` reads the staged file and falls back to a release for old tags.
 
 ## How the routine and the code talk
 - Routine -> code: commits the payload, uploads `video.mp4` to the private media repo, starts `publish.yml`.
