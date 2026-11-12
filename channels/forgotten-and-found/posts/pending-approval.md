@@ -45,12 +45,20 @@
   `f40a21fbc31ef3253ab423cbe59504e50003cf9dcc6c56bc6f13f825f6b2a453`.
 - **Staged**: video committed as `staged/post-forgotten-and-found-04/video.mp4` in the private
   media repo (commit `1b5c527`). Payload + script committed to `youtube-automation-` main.
-- **Dispatched**: `gh workflow run publish.yml -f post=channels/forgotten-and-found/posts/04-pied-piper-payload.json -f tag=post-forgotten-and-found-04` —
-  see run URL logged in this run's final report. `prepare` job expected to validate content
-  hash; `publish` job will wait on the `publish-approval` environment review.
-  **AWAITING KATIE'S APPROVAL on GitHub** — nothing will go live until she reviews and
-  approves that run. Created the GitHub-approval to-do on the Katie HQ dashboard for this
-  video.
+- **Dispatched**: `gh workflow run publish.yml -f post=channels/forgotten-and-found/posts/04-pied-piper-payload.json -f tag=post-forgotten-and-found-04` →
+  run https://github.com/katherineparks141-eng/youtube-automation-/actions/runs/43273789908.
+  Unlike run `42869962397` (which reached the `prepare` job and the `publish-approval` wait
+  within seconds on 2026-11-10), this run sat at `pending` with zero jobs for several minutes.
+  Checked `publish.yml`: it declares `concurrency: publish` (one shared group, no per-run
+  key), and run `42869962397` is still `waiting` on Katie's environment review — so GitHub is
+  correctly queuing this run behind it, not failing or stuck. It will start its own `prepare`
+  job as soon as run `42869962397` is approved or rejected (or cancelled). This is expected
+  behavior given two outstanding approvals queue on the same workflow, not a new fault — ruled
+  out the Actions-budget guess I first wrote here. Created the GitHub-approval to-do on the
+  Katie HQ dashboard for this video regardless, since the dispatch itself succeeded and will
+  run once its turn comes.
+  **AWAITING KATIE'S APPROVAL on GitHub** (both this run and the still-pending `42869962397`)
+  — nothing will go live until she reviews and approves them, in order.
 - **Known gap carried over from the 11/10 run**: `automation/youtube.py` still has no
   `thumbnails.set` call, so this video's dedicated thumbnail (saved this session; not part of
   the committed payload) won't upload automatically — Katie will need to set it by hand in
