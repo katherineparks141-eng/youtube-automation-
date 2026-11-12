@@ -1,11 +1,30 @@
 {
-  "lastRefreshed": "2026-11-11T18:17:28+00:00",
+  "lastRefreshed": "2026-11-12T18:40:06+00:00",
   "channel": {
     "subscribers": 1,
     "totalViews": 4247,
-    "videoCount": 6
+    "videoCount": 8
   },
-  "perVideo": [],
+  "perVideo": [
+    {
+      "title": "The Pied Piper of Hamelin: The Real History Behind the Legend",
+      "channel": "forgotten-and-found",
+      "videoId": "4CXYaztUFBA",
+      "privacy": "public",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "title": "The Bunny Who Was Afraid to Dream | A Sleepy Meadow Bedtime Story",
+      "channel": "sleepy-meadow-stories",
+      "videoId": "vR4m2v_0Amk",
+      "privacy": "public",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    }
+  ],
   "spendUsd": 0,
   "revenueUsd": 0,
   "monetized": false,
