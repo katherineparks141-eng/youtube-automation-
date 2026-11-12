@@ -1,5 +1,61 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-12 (scheduled run) — "The Pied Piper of Hamelin" PRODUCED, staged, dispatched for approval
+- STEP 1 (read-only): run `42869962397` (Sleepy Meadow story 04b, new Pip design) is **still
+  waiting** on Katie's `publish-approval` GitHub review — now ~2 days since dispatch
+  (2026-11-10 17:56 UTC). No other `publish.yml` runs waiting; no `*.result.json` files exist
+  yet for either channel, so nothing has actually gone live under the new GitHub Actions flow.
+  Issue #14 (possible Peter Rabbit/Beatrix Potter resemblance in the live Sleepy Meadow videos
+  01-03) is **still open**, 0 comments, 0 action taken — flagging again for Katie.
+- STEP 1.5: refreshed the Katie HQ dashboard (`dashboard/youtube-analytics` doc) from
+  `data/youtube-analytics.json` (last refreshed 2026-11-11T18:17:28Z upstream; numbers
+  unchanged since 11/9: 1 subscriber, 4,247 lifetime views, 6 videos). Reported
+  `subscribersNetChange: 0` (flat across all 3 tracked refreshes, not estimated). `perVideo`
+  stays empty — no video has published under the new flow yet. Also refreshed the `youtube`
+  project card's one-line `line` field on `dashboard/current`.
+- STEP 2: today is Thursday — Forgotten & Found's turn. New topic, Folklore with a History
+  pillar (the channel's 4th pillar, not yet covered by videos 01-03): "The Pied Piper of
+  Hamelin: The Real History Behind the Legend." Verified via web search against Wikipedia and
+  Museum Hameln's own site before writing the script, to keep hard rule 6 (cited sources)
+  accurate. No copyrighted characters — the Pied Piper of Hamelin is public-domain medieval
+  folklore, not a trademarked character.
+- Script: `scripts/04-pied-piper-of-hamelin.md`. Narration via Piper (`en_US-lessac-medium`,
+  voice copied from the private media repo's `voices/` — `pip install piper-tts` landed on
+  Python 3.13 in this environment, not the default `python3` on 3.11, so narration was run via
+  `/usr/local/bin/python3.13 -m piper`; worth noting for the next run in case the same split
+  recurs). Runtime: 6:29 (389.2s) — shorter than the 8-9 min target, consistent with normal
+  script-length variance seen on prior videos (e.g. "The Bunny Who Counted the Stars").
+- Visuals: 6 scene illustrations + 1 thumbnail via Canva `generate-image` (one `quota_cooldown`
+  on the first thumbnail attempt; retried successfully a few calls later, no video-order
+  pipeline change needed). Hit the same full-resolution export limitation logged on the
+  2026-11-10 Sleepy Meadow run (`export-download.canva.com` / `media.canva.com` both
+  `connect_rejected` under this session's egress policy): worked around it the same documented
+  way — built a disposable 1920x1080 Canva design (`DAHauTBZZp0`), inserted each image
+  full-bleed on its own page, and captured the ~600x338 page-preview thumbnails the Canva MCP
+  tool fetches itself (not subject to the egress block). ffmpeg upscales these to 1920x1080 in
+  assembly, consistent with the established pipeline quality.
+- Assembled with `pipeline/assemble_video.sh`: 1920x1080, ~21.7 MB, well under the 95 MB
+  staging limit. Spot-checked two extracted frames for visual/audio sync — clean.
+- Payload (`posts/04-pied-piper-payload.json`): `type: "public"`,
+  `selfDeclaredMadeForKids: "no"` (hard rule 2 — general-audience history content), AI-
+  disclosure line present, full source citations (Wikipedia, Museum Hameln, the Lüneburg
+  manuscript, the Zimmern Chronicle, Jürgen Udolph's emigration research), 5 hashtags in the
+  description (first one at character 94, within the first 100), none identical to prior F&F
+  videos' sets. Validated clean via `python3 -m automation.publish check`. Approval hash:
+  `f40a21fbc31ef3253ab423cbe59504e50003cf9dcc6c56bc6f13f825f6b2a453`.
+- **Staged**: video committed as `staged/post-forgotten-and-found-04/video.mp4` in the private
+  media repo (commit `1b5c527`). Payload + script committed to `youtube-automation-` main.
+- **Dispatched**: `gh workflow run publish.yml -f post=channels/forgotten-and-found/posts/04-pied-piper-payload.json -f tag=post-forgotten-and-found-04` —
+  see run URL logged in this run's final report. `prepare` job expected to validate content
+  hash; `publish` job will wait on the `publish-approval` environment review.
+  **AWAITING KATIE'S APPROVAL on GitHub** — nothing will go live until she reviews and
+  approves that run. Created the GitHub-approval to-do on the Katie HQ dashboard for this
+  video.
+- **Known gap carried over from the 11/10 run**: `automation/youtube.py` still has no
+  `thumbnails.set` call, so this video's dedicated thumbnail (saved this session; not part of
+  the committed payload) won't upload automatically — Katie will need to set it by hand in
+  YouTube Studio after this publishes, same as story 04b.
+
 ## 2026-11-10 (12:30 ET scheduled run) — STEP 1 only: nothing waiting, no production today (not F&F's day)
 - STEP 1 (read-only): no `publish.yml` runs waiting for Katie's approval (only the 3
   `test/private-upload` test dispatches from 2026-11-09 exist). No open GitHub issues

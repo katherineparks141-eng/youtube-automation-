@@ -1,0 +1,33 @@
+{
+  "type": "now",
+  "date": "2026-11-12T19:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "A church window in a German town once showed a mysterious piper, and a date: June 26th, 1284. #ForgottenAndFound What the town's own oldest records actually say happened that day has nothing to do with rats (they weren't added to the story for another 275 years), and the real historical theory for what happened to those children is stranger than the fairy tale.\n\nThis video uses AI narration and AI-generated illustrations.\n\nSources: Wikipedia — \"Pied Piper of Hamelin\"; Museum Hameln (museumhameln.de) — official exhibition page on the competing historical theories; the Lüneburg manuscript (c. 1440–1450) and the Zimmern Chronicle (Froben Christoph von Zimmern, c. 1559–1565); linguist Jürgen Udolph's surname-based emigration research as reported via Museum Hameln and secondary historical coverage.\n\n#ForgottenAndFound #PiedPiper #Hamelin #GermanFolklore #FolkloreWithAHistory",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Pied Piper of Hamelin: The Real History Behind the Legend",
+        "type": "public",
+        "selfDeclaredMadeForKids": "no",
+        "tags": [
+          { "value": "pied piper of hamelin true story", "label": "pied piper of hamelin true story" },
+          { "value": "pied piper real history", "label": "pied piper real history" },
+          { "value": "hamelin germany legend", "label": "hamelin germany legend" },
+          { "value": "rattenfanger von hameln", "label": "rattenfanger von hameln" },
+          { "value": "german folklore legend", "label": "german folklore legend" },
+          { "value": "medieval child disappearance", "label": "medieval child disappearance" },
+          { "value": "ostsiedlung migration theory", "label": "ostsiedlung migration theory" },
+          { "value": "jurgen udolph pied piper", "label": "jurgen udolph pied piper" }
+        ]
+      }
+    }
+  ]
+}
