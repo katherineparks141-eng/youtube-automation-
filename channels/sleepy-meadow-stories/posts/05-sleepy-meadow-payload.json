@@ -1,0 +1,30 @@
+{
+  "type": "now",
+  "date": "2026-11-13T19:30:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "Pip can't stop worrying about tomorrow's big day — what if he forgets his words? #SleepyMeadowStories Oona the owl teaches him a gentle trick: set each worry into a little pouch and tell it, 'you can wait for morning,' so tonight he can finally rest.\n\nThis video uses AI narration and AI-generated illustrations.\n\n#BedtimeStory #PipTheBunny #BedtimeWorries #CalmBedtime",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Bunny Who Worried About Tomorrow | A Sleepy Meadow Bedtime Story",
+        "type": "public",
+        "selfDeclaredMadeForKids": "yes",
+        "tags": [
+          { "value": "toddler bedtime story for worries", "label": "toddler bedtime story for worries" },
+          { "value": "bunny bedtime story for anxious kids", "label": "bunny bedtime story for anxious kids" },
+          { "value": "calm down before bed for kids", "label": "calm down before bed for kids" },
+          { "value": "nervous about tomorrow bedtime story", "label": "nervous about tomorrow bedtime story" },
+          { "value": "worry jar bedtime story kids", "label": "worry jar bedtime story kids" }
+        ]
+      }
+    }
+  ]
+}
