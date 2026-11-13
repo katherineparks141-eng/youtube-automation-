@@ -1,5 +1,24 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-13 (scheduled run) — STEP 1 check: "The Bunny Who Was Afraid to Dream" PUBLISHED
+- `gh run list --workflow publish.yml --limit 10`: run `42869962397` (story 04b, new Pip design,
+  post-sleepy-meadow-stories-04b) completed successfully on 2026-11-12.
+  `channels/sleepy-meadow-stories/posts/04-sleepy-meadow-payload.result.json` confirms it went
+  live: videoId `vR4m2v_0Amk`, https://youtu.be/vR4m2v_0Amk, publishedAt 2026-11-12T18:20:04Z,
+  public. Katie's `publish-approval` GitHub review was the actual gate — confirmed genuinely
+  approved and published, nothing more to do for this one.
+- Issue #14 (possible Peter Rabbit/Beatrix Potter resemblance in the OLD Pip design used by
+  stories 01-03, still live) remains **open**, 0 comments from Katie on the issue itself. The
+  redesigned Pip (character-reference.json, `doNot` list, no blue/burrow/lantern/basket/round
+  window) is what produced story 04/04b, and that video's publish went through the real
+  `publish-approval` GitHub environment review and is now live — that is itself a genuine signal
+  Katie is fine with the new design going forward (that approval gate can't be satisfied by this
+  session on its own). But her explicit call on stories 01-03 (take down / leave / review) still
+  hasn't landed anywhere visible on GitHub. Not blocking today's production (which will use only
+  the new design per the lifted halt in `character-reference.json`), but still flagging issue #14
+  as open and unresolved on the 01-03 question specifically.
+- No "Publish blocked" issues open for this channel.
+
 ## 2026-11-10 (12:30 ET scheduled run) — "The Bunny Who Was Afraid to Dream" PRODUCED with the new Pip design, staged, AWAITING KATIE'S APPROVAL on GitHub
 - STEP 1 (read-only): no `publish.yml` runs waiting for Katie (only the 3 `test/private-upload`
   test dispatches from 2026-11-09 existed). No `*.result.json` files for either channel —

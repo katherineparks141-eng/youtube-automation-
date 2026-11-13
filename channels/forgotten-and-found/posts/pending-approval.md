@@ -1,5 +1,16 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-13 (scheduled run) — STEP 1 check: "The Pied Piper of Hamelin" PUBLISHED
+- `gh run list --workflow publish.yml --limit 10`: run `43273789908` (Pied Piper, post-forgotten-and-found-04)
+  completed successfully on 2026-11-12. `channels/forgotten-and-found/posts/04-pied-piper-payload.result.json`
+  confirms it went live: videoId `4CXYaztUFBA`, https://youtu.be/4CXYaztUFBA, publishedAt
+  2026-11-12T18:20:36Z, public. Katie's `publish-approval` GitHub review was the actual gate —
+  confirmed genuinely approved and published, nothing more to do for this one.
+- Issue #14 (possible Peter Rabbit/Beatrix Potter resemblance in Sleepy Meadow videos 01-03) is
+  **still open**, 0 comments — unrelated to this channel directly but noting it per the
+  cross-channel flag in the prior entry below.
+- No open "Publish blocked" issues for Forgotten & Found.
+
 ## 2026-11-12 (scheduled run) — "The Pied Piper of Hamelin" PRODUCED, staged, dispatched for approval
 - STEP 1 (read-only): run `42869962397` (Sleepy Meadow story 04b, new Pip design) is **still
   waiting** on Katie's `publish-approval` GitHub review — now ~2 days since dispatch
