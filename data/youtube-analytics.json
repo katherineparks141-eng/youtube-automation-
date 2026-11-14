@@ -1,9 +1,9 @@
 {
-  "lastRefreshed": "2026-11-13T18:20:18+00:00",
+  "lastRefreshed": "2026-11-14T16:49:38+00:00",
   "channel": {
     "subscribers": 1,
     "totalViews": 4247,
-    "videoCount": 8
+    "videoCount": 9
   },
   "perVideo": [
     {
@@ -19,6 +19,15 @@
       "title": "The Bunny Who Was Afraid to Dream | A Sleepy Meadow Bedtime Story",
       "channel": "sleepy-meadow-stories",
       "videoId": "vR4m2v_0Amk",
+      "privacy": "public",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "title": "The Bunny Who Worried About Tomorrow | A Sleepy Meadow Bedtime Story",
+      "channel": "sleepy-meadow-stories",
+      "videoId": "Pb5XUsKrA4g",
       "privacy": "public",
       "views": 0,
       "likes": 0,
