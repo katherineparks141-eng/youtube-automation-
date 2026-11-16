@@ -1,5 +1,51 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-16 (scheduled run) — "Port Royal: The Pirate City the Sea Swallowed in Two Minutes" PRODUCED, staged, dispatched for approval
+- STEP 1 (read-only): `gh run list --workflow publish.yml --limit 10` shows all 6 runs completed.
+  Run `43477718427` (Sleepy Meadow story 05, dispatched 2026-11-13 and still awaiting approval
+  as of that run's log) has now completed successfully — see the Sleepy Meadow pending-approval
+  log for the confirmed live result. No `publish.yml` run is currently waiting on Katie. Issue
+  #14 (possible Peter Rabbit/Beatrix Potter resemblance in Sleepy Meadow stories 01-03, still
+  live) remains **open**, 6 days now with no comment from Katie — flagging again; this doesn't
+  block Forgotten & Found production but is a standing compliance item.
+- STEP 2: today is Monday — Forgotten & Found's turn. Checked `scripts/`/`posts/`: 01 Bell Witch
+  (Folklore with a History), 02 Roanoke (Unsolved & Unexplained), 03 Dancing Plague (Strange But
+  True), 04 Pied Piper (Folklore with a History) — **Lost Places is the only pillar with zero
+  videos so far**, so picked a Lost Places topic: Port Royal, Jamaica, the pirate-era city a
+  third of which sank into Kingston Harbour in the 1692 earthquake. Verified against Wikipedia,
+  Texas A&M's Nautical Archaeology Program (Dr. Donny Hamilton's published excavation findings),
+  UNESCO's 2024 Jamaica Tentative List entry, and Jamaica National Heritage Trust before writing
+  — no copyrighted characters, real documented history, named the transatlantic slave trade
+  plainly rather than skipping past it.
+- Script: `scripts/05-port-royal-jamaica.md`. Narration via Piper (`en_US-lessac-medium`,
+  `python3.13 -m piper` — same 3.13/3.11 split as prior runs, voices copied from the media
+  repo's `voices/`). Runtime: 6:03 (363.4s) — shorter than the 9-10 min target, consistent with
+  the normal script-length variance seen on prior videos (e.g. Pied Piper ran 6:29 vs 8-9 min).
+- Visuals: 6 scene illustrations + 1 thumbnail via Canva `generate-image`, all 7 succeeded
+  without hitting `quota_cooldown` this run. Same egress-blocked raw-asset export
+  (`export-download.canva.com`/`media.canva.com`, confirmed via a direct `curl` test returning
+  `CONNECT tunnel failed, response 403`) as every prior run — worked around it the same
+  documented way: built a disposable 1920x1080 Canva design (`DAHbGQhhvBU`), inserted each image
+  full-bleed on its own page, captured the ~600x338 page-preview thumbnails via `read-design`/
+  `edit-design` (not subject to the egress block), then committed the transaction. ffmpeg
+  upscales these to 1920x1080 in assembly. Thumbnail is a split above/below-waterline composition
+  (emotional hook); title carries the informational hook — no repeat between them.
+- Assembled with `pipeline/assemble_video.sh`: 1920x1080, 22 MB, well under the 95 MB staging
+  limit. Spot-checked frames at 30s and 200s — clean sync, no text artifacts, no watermarks.
+- Payload (`posts/05-port-royal-payload.json`): `type: "public"`, `selfDeclaredMadeForKids: "no"`
+  (hard rule 2 — general-audience history content), AI-disclosure line present, full source
+  citations, 5 hashtags in the description (one at character ~70, within the first 100), none
+  identical to stories 1-4's sets. Validated clean via `python3 -m automation.publish check`.
+  Approval hash: `82dda76d604ee657d137374e2767840022b9a11553adf79ffbe0f4072596da05`.
+- **Staged**: video committed as `staged/post-forgotten-and-found-05/video.mp4` in the private
+  media repo (commit `9f1dd19`). Payload + script committed to `youtube-automation-` main.
+- **Dispatched**: `gh workflow run publish.yml -f post=channels/forgotten-and-found/posts/05-port-royal-payload.json -f tag=post-forgotten-and-found-05`.
+  **AWAITING KATIE'S APPROVAL on GitHub** — nothing will go live until she reviews and approves
+  the `publish-approval` environment review on that run.
+- **Known gap carried over**: `automation/youtube.py` still has no `thumbnails.set` call, so this
+  video's dedicated thumbnail won't upload automatically — Katie will need to set it by hand in
+  YouTube Studio after this publishes, same as every video published under the new flow so far.
+
 ## 2026-11-13 (scheduled run) — STEP 1 check: "The Pied Piper of Hamelin" PUBLISHED
 - `gh run list --workflow publish.yml --limit 10`: run `43273789908` (Pied Piper, post-forgotten-and-found-04)
   completed successfully on 2026-11-12. `channels/forgotten-and-found/posts/04-pied-piper-payload.result.json`

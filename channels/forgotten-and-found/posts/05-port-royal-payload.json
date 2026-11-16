@@ -1,0 +1,33 @@
+{
+  "type": "now",
+  "date": "2026-11-16T19:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "A 17th-century pirate city slid into the sea in under two minutes. #ForgottenAndFound Divers still swim its intact street grid today, and the eyewitness accounts from that single morning in 1692 survive, written down within weeks of the earthquake that sank a third of Port Royal, Jamaica.\n\nThis video uses AI narration and AI-generated illustrations.\n\nSources: Wikipedia — \"Port Royal\" and \"1692 Jamaica earthquake\"; Texas A&M University Nautical Archaeology Program (Dr. Donny L. Hamilton's Port Royal excavation findings); UNESCO Jamaica Tentative List (2024) entry for the Submerged City of Port Royal; Jamaica National Heritage Trust; contemporary 1692 eyewitness accounts including Rev. Emmanuel Heath's letter, as preserved in historical secondary sources.\n\n#ForgottenAndFound #PortRoyal #LostCities #PirateHistory #UnderwaterArchaeology",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "Port Royal: The Pirate City the Sea Swallowed in Two Minutes",
+        "type": "public",
+        "selfDeclaredMadeForKids": "no",
+        "tags": [
+          { "value": "port royal jamaica earthquake", "label": "port royal jamaica earthquake" },
+          { "value": "sunken pirate city jamaica", "label": "sunken pirate city jamaica" },
+          { "value": "1692 jamaica earthquake history", "label": "1692 jamaica earthquake history" },
+          { "value": "port royal underwater archaeology", "label": "port royal underwater archaeology" },
+          { "value": "lost city forgotten and found", "label": "lost city forgotten and found" },
+          { "value": "pirate city swallowed by the sea", "label": "pirate city swallowed by the sea" },
+          { "value": "texas a&m port royal excavation", "label": "texas a&m port royal excavation" },
+          { "value": "jamaica lost city true story", "label": "jamaica lost city true story" }
+        ]
+      }
+    }
+  ]
+}

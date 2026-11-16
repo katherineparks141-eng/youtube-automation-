@@ -1,5 +1,18 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-16 (scheduled run) — STEP 1 check: "The Bunny Who Worried About Tomorrow" PUBLISHED
+- `gh run list --workflow publish.yml --limit 10`: run `43477718427` (story 05, new Pip design,
+  post-sleepy-meadow-stories-05) completed successfully on 2026-11-13.
+  `channels/sleepy-meadow-stories/posts/05-sleepy-meadow-payload.result.json` confirms it went
+  live: videoId `Pb5XUsKrA4g`, https://youtu.be/Pb5XUsKrA4g, publishedAt 2026-11-13T21:46:54Z,
+  public. Katie's `publish-approval` GitHub review was the actual gate — confirmed genuinely
+  approved and published, nothing more to do for this one.
+- Not Sleepy Meadow's day today (Monday — Forgotten & Found's turn per the Mon/Thu, Tue/Fri
+  cadence); see that channel's pending-approval log for today's production.
+- Issue #14 (Peter Rabbit/Beatrix Potter resemblance in the OLD Pip design used by stories 01-03,
+  still live) remains **open**, now 6 days with no comment from Katie on the issue itself —
+  flagging again as a standing, unresolved compliance item on content that is currently public.
+
 ## 2026-11-13 (scheduled run) — "The Bunny Who Worried About Tomorrow" PRODUCED, staged, dispatched for approval
 - STEP 2: today is Friday — Sleepy Meadow's turn. New theme, Pip pillar 5th story: anxious
   anticipation of a specific future event (tomorrow's meadow sing-along) — distinct from
