@@ -1,0 +1,30 @@
+{
+  "type": "now",
+  "date": "2026-11-17T19:30:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "Pip is scared when a big thunderstorm rolls over the meadow. #SleepyMeadowStories Oona the owl teaches him a simple trick: count slowly between the flash and the rumble, so loud noises don't feel so scary anymore.\n\nThis video uses AI narration and AI-generated illustrations.\n\n#BedtimeStory #ThunderstormHelp #PipTheBunny #CalmBedtime",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Bunny Who Was Scared of the Storm | A Sleepy Meadow Bedtime Story",
+        "type": "public",
+        "selfDeclaredMadeForKids": "yes",
+        "tags": [
+          { "value": "toddler scared of thunder bedtime story", "label": "toddler scared of thunder bedtime story" },
+          { "value": "bunny bedtime story for storms", "label": "bunny bedtime story for storms" },
+          { "value": "scared of thunderstorm toddler", "label": "scared of thunderstorm toddler" },
+          { "value": "calm down during a storm for kids", "label": "calm down during a storm for kids" },
+          { "value": "thunder and lightning bedtime story", "label": "thunder and lightning bedtime story" }
+        ]
+      }
+    }
+  ]
+}
