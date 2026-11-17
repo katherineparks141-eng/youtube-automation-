@@ -1,5 +1,59 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-17 (scheduled run) — "The Bunny Who Was Scared of the Storm" PRODUCED, staged, dispatched for approval
+- STEP 1 (read-only): confirmed nothing new has published since the 11/16 note. Forgotten & Found's
+  "Port Royal, Jamaica" run (`43922804382`, dispatched 11/16) is still `waiting` on Katie's GitHub
+  `publish-approval` review, ~24h in. Issue #14 (Peter Rabbit resemblance, live Sleepy Meadow 01-03)
+  is still open, 0 comments, now 7 days — reflagging again.
+- STEP 2: today is Tuesday — Sleepy Meadow's turn. Checked `scripts/`/`posts/`: stories 1-5 covered
+  fear of the dark, racing bedtime thoughts, FOMO, nightmares, and worry about a future event — all
+  distinct Pip pillar themes. Picked a new, distinct theme: a nighttime thunderstorm scare, resolved
+  with a sound-based counting/grounding trick (not a pouch, cloud, or guardians, to stay clearly
+  different from stories 4-5). New script: `scripts/06-the-bunny-who-was-scared-of-the-storm.md`.
+  Used only the current post-redesign Pip reference (`MAHaibwGBwg` from `character-reference.json`)
+  for every image; storm visuals kept deliberately gentle (soft gray clouds, rounded raindrops,
+  brief firefly-soft lightning glow, no jagged bolts) so the scare reads as Pip's reaction, not as
+  frightening imagery for the target age group.
+- Narration via Piper (`en_US-amy-medium`, `pip install piper-tts` landed on `/usr/local/bin/python3.13`
+  again, not default `python3` 3.11 — same split noted on prior runs; voice model copied from the
+  media repo's `voices/`). Ran the module directly via `python3.13 -m piper` since the wrapper script
+  hardcodes `python3`. Runtime: 3:34.7 (214.7s).
+- Visuals: 6 scene illustrations + 1 thumbnail via Canva `generate-image`, all 7 succeeded without
+  hitting `quota_cooldown` this run. Same full-resolution export limitation as every prior run
+  (`export-download.canva.com`/`media.canva.com` blocked by this session's egress policy) — worked
+  around it the same documented way: built a disposable 1920x1080 Canva design (`DAHbMSAtVJA`),
+  inserted each image full-bleed on its own page, then captured each page's preview thumbnail via a
+  trivial same-transaction `move` + immediate `read-design` thumbnail read (the stored-thumbnail
+  cache needed a same-transaction read right after the edit to populate; a bulk thumbnails request
+  after committing returned "no stored thumbnail yet" for several pages until done this way). Also
+  found and removed two stray leftover elements the "blank canvas" generation left on page 1 before
+  inserting the first image. Thumbnail kept calm/non-exaggerated per the channel rule (two bunnies
+  snuggled, looking calmly out at the rain — not a dramatic storm shot).
+- Assembled with `pipeline/assemble_video.sh`: 1920x1080, ~15.4 MB, well under the 95 MB staging
+  limit. Spot-checked frames at 15s and 180s — clean upscale, no artifacts, narration/visual beats
+  in sync with the script's timing notes.
+- Payload (`posts/06-sleepy-meadow-payload.json`): `type: "public"`,
+  `selfDeclaredMadeForKids: "yes"` (hard rule 2), AI-disclosure line present, 5 hashtags (one within
+  the first ~70 characters), combination not identical to any of stories 1-5's sets. Validated clean
+  via `python3 -m automation.publish check`. Approval hash:
+  `8ac47a03f060eeafb92e7cd8f5f7ad94ed2f371d527b5c4b0381ec86abed81f1`.
+- **Staged**: video committed as `staged/post-sleepy-meadow-stories-06/video.mp4` in the private
+  media repo (commit `80f58c5`). Payload + script committed to `youtube-automation-` main
+  (commit `825e8be`).
+- **Dispatched**: `gh workflow run publish.yml -f post=channels/sleepy-meadow-stories/posts/06-sleepy-meadow-payload.json -f tag=post-sleepy-meadow-stories-06` →
+  run https://github.com/katherineparks141-eng/youtube-automation-/actions/runs/44142087104.
+  This run is queued (`pending`, no jobs started yet) behind run `43922804382` because `publish.yml`
+  declares one shared `concurrency: publish` group and that run is still waiting on Katie's review —
+  same expected queueing behavior documented on the 11/12 run, not a new fault. It will start its
+  own `prepare` job once that run is approved, rejected, or cancelled.
+  **AWAITING KATIE'S APPROVAL on GitHub** (both this run and the still-pending `43922804382`,
+  in order) — nothing will go live until she reviews and approves them.
+- Dashboard to-do `r20261117-youtube-production-01` created on
+  https://claude.ai/artifact/KPm8DRRk9RrVT9JH3YtcQL pointing at the run URL above.
+- **Known gap carried over**: `automation/youtube.py` still has no `thumbnails.set` call, so this
+  video's dedicated thumbnail won't upload automatically — Katie will need to set it by hand in
+  YouTube Studio after this publishes, same as every video published under the new flow so far.
+
 ## 2026-11-16 (scheduled run) — STEP 1 check: "The Bunny Who Worried About Tomorrow" PUBLISHED
 - `gh run list --workflow publish.yml --limit 10`: run `43477718427` (story 05, new Pip design,
   post-sleepy-meadow-stories-05) completed successfully on 2026-11-13.
