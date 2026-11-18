@@ -1,15 +1,24 @@
 {
-  "lastRefreshed": "2026-11-17T19:30:43+00:00",
+  "lastRefreshed": "2026-11-18T19:13:06+00:00",
   "channel": {
     "subscribers": 1,
     "totalViews": 4251,
-    "videoCount": 9
+    "videoCount": 10
   },
   "perVideo": [
     {
       "title": "The Pied Piper of Hamelin: The Real History Behind the Legend",
       "channel": "forgotten-and-found",
       "videoId": "4CXYaztUFBA",
+      "privacy": "public",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "title": "Port Royal: The Pirate City the Sea Swallowed in Two Minutes",
+      "channel": "forgotten-and-found",
+      "videoId": "X_ZmbV1VVg0",
       "privacy": "public",
       "views": 0,
       "likes": 0,
