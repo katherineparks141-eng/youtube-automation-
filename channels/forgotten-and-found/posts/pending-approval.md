@@ -1,5 +1,12 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-19 (scheduled run) — STEP 1 check: "Port Royal: The Pirate City the Sea Swallowed in Two Minutes" PUBLISHED
+- `gh run list --workflow publish.yml --limit 10`: run `43922804382` (Port Royal, post-forgotten-and-found-05) completed successfully 2026-11-17T23:09:34Z.
+  `channels/forgotten-and-found/posts/05-port-royal-payload.result.json` confirms it went live, public: videoId `X_ZmbV1VVg0` (https://youtu.be/X_ZmbV1VVg0). No open "Publish blocked" issues.
+  Issue #14 (Peter Rabbit resemblance, Sleepy Meadow) was closed by Katie 2026-11-18 — resolved. One run (`44142087104`, Sleepy Meadow story 06) is still `waiting` on Katie's GitHub approval, now ~2 days — logged on the Sleepy Meadow side.
+- Dashboard refreshed (`data/youtube-analytics.json`, 2026-11-18 pull: 1 subscriber, 4,251 views, 10 videos — unchanged subscriber count, +3 views since 11/17's 4,248).
+- STEP 2: today is Thursday — Forgotten & Found's turn. Producing next video below.
+
 ## 2026-11-16 (scheduled run) — "Port Royal: The Pirate City the Sea Swallowed in Two Minutes" PRODUCED, staged, dispatched for approval
 - STEP 1 (read-only): `gh run list --workflow publish.yml --limit 10` shows all 6 runs completed.
   Run `43477718427` (Sleepy Meadow story 05, dispatched 2026-11-13 and still awaiting approval
