@@ -1,5 +1,56 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-19 (scheduled run, continued) — "The Mary Celeste: The Ship Found Empty at Sea" PRODUCED, staged, dispatched for approval
+- STEP 2: picked Unsolved & Unexplained (UU) — the channel's largest-weighted pillar (35%) and, after
+  Port Royal, the pillar due for its next video. Checked `scripts/`/`posts/`: 01 Bell Witch (haunting),
+  02 Roanoke (vanished colony), 03 Dancing Plague (mass hysteria), 04 Pied Piper (folklore), 05 Port
+  Royal (natural disaster) — no prior video has covered an unsolved maritime mystery. Verified facts via
+  WebSearch against Smithsonian Magazine, History.com, Encyclopaedia Britannica, and Royal Museums
+  Greenwich before writing: the Mary Celeste's 1872 Atlantic crossing, her crew of ten, the Dei Gratia's
+  boarding party findings (disassembled pump, missing lifeboat and papers, undisturbed belongings), the
+  Gibraltar salvage inquiry that ruled out violence without naming a cause, and the later Arthur Conan
+  Doyle short story that many retellings mistake for fact (flagged explicitly in the script as fiction,
+  not history). Script: `scripts/06-mary-celeste.md`.
+- Narration via Piper (`en_US-lessac-medium`; `pip install piper-tts` landed on `/usr/local/bin/python3.13`
+  again, not default `python3` 3.11 — same split as every prior run; voice model copied from the media
+  repo's `voices/`). Ran the module directly via `python3.13 -m piper` since the wrapper script hardcodes
+  `python3`. Runtime: 5:12 (312.3s) — shorter than the 8-9 min target, in line with the normal
+  script-length variance seen on every prior F&F video.
+- Visuals: 6 scene illustrations + 1 thumbnail via Canva `generate-image`, all 7 succeeded without
+  hitting `quota_cooldown` this run (no Runway fallback needed). Same full-resolution export limitation
+  as every prior run (`export-download.canva.com` confirmed still blocked via direct `curl` test, 403)
+  — worked around it the same documented way: built a disposable 6912x3456 Canva design (`DAHbYWI5FqY`),
+  inserted each image full-bleed on its own page, captured the ~600x300 page-preview thumbnails straight
+  from each `insert_fill` edit response (no extra move+read needed this run — the thumbnail came back
+  populated on the first edit call for every page). ffmpeg upscales these to 1920x1080 in assembly.
+  Minor cosmetic note: the New York harbor scene's background skyline reads slightly too modern for 1872
+  (an artifact of the image model) — visual only, doesn't affect any claim in the narration or
+  description; not worth a regeneration cycle today. Thumbnail is a dramatic adrift-ghost-ship shot
+  (emotional hook); title states the documented mystery (informational hook) — no repeat between them.
+- Assembled with `pipeline/assemble_video.sh`: 1920x1080, 17.5 MB, well under the 95 MB staging limit.
+  Spot-checked frames at 15s and 300s — clean upscale, no artifacts, narration/visual beats in sync.
+- Payload (`posts/06-mary-celeste-payload.json`): `type: "public"`, `selfDeclaredMadeForKids: "no"`
+  (hard rule 2 — general-audience history content), AI-disclosure line present, full source citations,
+  5 hashtags in the description (one within the first ~140 characters), none identical to stories 1-5's
+  sets. Validated clean via `python3 -m automation.publish check`. Approval hash:
+  `75ae79734282269e14c2df805bc44cde4d4ca10337e2a4602ecb89ef945d2e65`.
+- **Staged**: video committed as `staged/post-forgotten-and-found-06/video.mp4` in the private media repo
+  (commit `8bc0e6c`). Payload + script committed to `youtube-automation-` main (commit `5c6c0a8`).
+- **Dispatched**: `gh workflow run publish.yml -f post=channels/forgotten-and-found/posts/06-mary-celeste-payload.json -f tag=post-forgotten-and-found-06` →
+  run https://github.com/katherineparks141-eng/youtube-automation-/actions/runs/44581764533.
+  This run is queued (`pending`, no jobs started after ~1 minute) behind run `44142087104` (Sleepy
+  Meadow story 06) because `publish.yml` declares one shared `concurrency: publish` group and that run
+  is still `waiting` on Katie's review, now ~2 days — same expected queueing behavior documented on
+  every prior run with two runs in flight, not a new fault. It will start its own `prepare` job once
+  that run is approved, rejected, or cancelled.
+  **AWAITING KATIE'S APPROVAL on GitHub** (both this run and the still-pending `44142087104`, in order)
+  — nothing will go live until she reviews and approves them.
+- Dashboard to-do `r20261119-youtube-production-01` created on
+  https://claude.ai/artifact/KPm8DRRk9RrVT9JH3YtcQL pointing at the run URL above.
+- **Known gap carried over**: `automation/youtube.py` still has no `thumbnails.set` call, so this
+  video's dedicated thumbnail won't upload automatically — Katie will need to set it by hand in
+  YouTube Studio after this publishes, same as every video published under the new flow so far.
+
 ## 2026-11-19 (scheduled run) — STEP 1 check: "Port Royal: The Pirate City the Sea Swallowed in Two Minutes" PUBLISHED
 - `gh run list --workflow publish.yml --limit 10`: run `43922804382` (Port Royal, post-forgotten-and-found-05) completed successfully 2026-11-17T23:09:34Z.
   `channels/forgotten-and-found/posts/05-port-royal-payload.result.json` confirms it went live, public: videoId `X_ZmbV1VVg0` (https://youtu.be/X_ZmbV1VVg0). No open "Publish blocked" issues.
