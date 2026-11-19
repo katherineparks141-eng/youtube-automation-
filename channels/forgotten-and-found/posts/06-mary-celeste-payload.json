@@ -1,0 +1,33 @@
+{
+  "type": "now",
+  "date": "2026-11-19T19:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "A ship was found drifting at sea in 1872 — full sails, dry stores, thread still on the sewing machine — and not a single person aboard. #ForgottenAndFound The official investigation ruled out violence entirely, and the one mechanical clue investigators actually found on deck is stranger, and more specific, than most retellings of this story let on.\n\nThis video uses AI narration and AI-generated illustrations.\n\nSources: Smithsonian Magazine — \"An Abandoned Merchant Ship Was Discovered Floating in the Atlantic in 1872. The Mystery of Its Missing Crew Was Never Solved\"; History.com — \"The Mystery of the Mary Celeste\"; Encyclopaedia Britannica — \"Mary Celeste\"; Royal Museums Greenwich — \"The Mystery of the Mary Celeste\" (Andrew Choong Han Lin).\n\n#ForgottenAndFound #MaryCeleste #UnsolvedMystery #MaritimeHistory #GhostShip",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Mary Celeste: The Ship Found Empty at Sea",
+        "type": "public",
+        "selfDeclaredMadeForKids": "no",
+        "tags": [
+          { "value": "mary celeste true story", "label": "mary celeste true story" },
+          { "value": "mary celeste mystery explained", "label": "mary celeste mystery explained" },
+          { "value": "ghost ship real history", "label": "ghost ship real history" },
+          { "value": "unsolved maritime mystery", "label": "unsolved maritime mystery" },
+          { "value": "benjamin briggs captain", "label": "benjamin briggs captain" },
+          { "value": "abandoned ship 1872", "label": "abandoned ship 1872" },
+          { "value": "dei gratia mary celeste", "label": "dei gratia mary celeste" },
+          { "value": "forgotten and found unsolved", "label": "forgotten and found unsolved" }
+        ]
+      }
+    }
+  ]
+}
