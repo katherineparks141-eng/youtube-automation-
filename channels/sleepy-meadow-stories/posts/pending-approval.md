@@ -1,5 +1,61 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-20 (scheduled run, continued) — "The Bunny Who Was Afraid to Try" PRODUCED, staged, dispatched for approval
+- STEP 2: today is Friday — Sleepy Meadow's turn. Checked `scripts/`/`posts/`: stories 1-6 covered
+  fear of the dark, racing bedtime thoughts, FOMO, nightmares, worry about a future event, and a
+  sudden loud noise (thunder) — all distinct Pip pillar themes. Picked a new, distinct theme: fear of
+  trying a new skill (hopping the lily-pad stream stones) in front of friends and risking getting it
+  wrong, resolved with a "wobbling is part of learning" reframe plus breaking the task into one small
+  first try (not a sound-counting trick, a pouch, a cloud, or picturing guardians). New script:
+  `scripts/07-the-bunny-who-was-afraid-to-try.md`. Used only the current post-redesign Pip reference
+  (`MAHaibwGBwg`) for every image featuring Pip; the two background young-rabbit friends at the stream
+  are simple, unnamed soft-style characters, not recurring cast.
+- Narration via Piper (`en_US-amy-medium`; `pip install piper-tts` landed on `/usr/local/bin/python3.13`
+  again, not default `python3` 3.11 — same split as every prior run; voice model copied from the media
+  repo's `voices/`). Ran the module directly via `python3.13 -m piper` since the wrapper script hardcodes
+  `python3`. Runtime: 4:00.2 (240.2s).
+- Visuals: 6 scene illustrations + 1 thumbnail via Canva `generate-image`, all using `MAHaibwGBwg` as
+  `imageReferences` for character consistency. Hit a new tool-level quirk this run: two of the 7
+  `generate-image` jobs (one scene call and the thumbnail call) were issued moments apart and the
+  connector returned the *same* `jobId` for both, so polling that job only ever returned one image
+  (the thumbnail's). Caught it by comparing visual content against each scene's intended beat rather
+  than trusting job-to-prompt order, found the one missing scene (Mama Rabbit's calm bedside visit),
+  and regenerated it individually (not batched) — confirmed by content inspection, not just job-id
+  bookkeeping. Worth flagging: do not assume a parallel batch of `generate-image` calls returns
+  distinct jobs 1:1; verify each image's actual content against its intended beat before building the
+  carrier design. Full-resolution export workaround unchanged from prior runs: disposable 1920x1080
+  Canva design (`DAHbefL2HxI`), each image inserted full-bleed on its own page, page-preview
+  thumbnails (600x338) captured directly from each `insert_fill` edit response — no same-transaction
+  move+read needed this run, all 7 came back populated on the first edit call. `export-download.canva.com`
+  confirmed still blocked via direct `curl` test (403, egress policy). Thumbnail kept calm/non-exaggerated
+  per the channel rule (Pip balanced calmly on one stone, gentle smile, no dramatic falling pose).
+- Assembled with `pipeline/assemble_video.sh`: 1920x1080, 16.6 MB, well under the 95 MB staging limit.
+  Spot-checked frames at 15s, 180s, and 230s — clean upscale, no artifacts, narration/visual beats in
+  sync with the script's timing notes.
+- Payload (`posts/07-sleepy-meadow-payload.json`): `type: "public"`, `selfDeclaredMadeForKids: "yes"`
+  (hard rule 2), AI-disclosure line present, 5 hashtags (`#SleepyMeadowStories` within the first ~100
+  characters), combination not identical to any of stories 1-6's sets. Validated clean via
+  `python3 -m automation.publish check`. Approval hash:
+  `daef49604986642ea1786869250b37236532004712b7e1909dc9d5219a85f609`.
+- **Staged**: video committed as `staged/post-sleepy-meadow-stories-07/video.mp4` in the private media
+  repo (commit `bd94271`). Payload + script committed to `youtube-automation-` main (commit `f4b686b`).
+- **Dispatched**: `gh workflow run publish.yml --ref main -f post=channels/sleepy-meadow-stories/posts/07-sleepy-meadow-payload.json -f tag=post-sleepy-meadow-stories-07` →
+  run https://github.com/katherineparks141-eng/youtube-automation-/actions/runs/44787449303.
+  `gh workflow run` failed once first with "unable to determine default branch" (it tries a GraphQL
+  default-branch lookup this session can't use) — fixed by passing `--ref main` explicitly; not a
+  workflow or repo problem. This run is `pending` (no jobs started yet) behind run `44581764533`
+  (Mary Celeste, F&F) because `publish.yml` declares one shared `concurrency: publish` group and that
+  run is still `waiting` on Katie's review — same expected queueing behavior as every prior run with
+  two runs in flight, not a new fault. It will start its own `prepare` job once that run is approved,
+  rejected, or cancelled.
+  **AWAITING KATIE'S APPROVAL on GitHub** (both this run and the still-pending `44581764533`, in
+  order) — nothing will go live until she reviews and approves them.
+- Dashboard to-do `r20261120-youtube-production-01` created on
+  https://claude.ai/artifact/KPm8DRRk9RrVT9JH3YtcQL pointing at the run URL above.
+- **Known gap carried over**: `automation/youtube.py` still has no `thumbnails.set` call, so this
+  video's dedicated thumbnail won't upload automatically — Katie will need to set it by hand in
+  YouTube Studio after this publishes, same as every video published under the new flow so far.
+
 ## 2026-11-20 (scheduled run) — STEP 1 check: "The Bunny Who Was Scared of the Storm" PUBLISHED
 - `gh run list --workflow publish.yml --limit 10`: run `44142087104` (story 06,
   post-sleepy-meadow-stories-06) completed successfully; `06-sleepy-meadow-payload.result.json`
