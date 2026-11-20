@@ -1,0 +1,30 @@
+{
+  "type": "now",
+  "date": "2026-11-20T19:30:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "Pip is too scared to try hopping the stream stones in front of his friends. #SleepyMeadowStories Oona the owl teaches him that wobbling isn't failing — it's part of learning, and you only have to try the first small step.\n\nThis video uses AI narration and AI-generated illustrations.\n\n#BedtimeStory #BraveBunny #PipTheBunny #GrowthMindset",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Bunny Who Was Afraid to Try | A Sleepy Meadow Bedtime Story",
+        "type": "public",
+        "selfDeclaredMadeForKids": "yes",
+        "tags": [
+          { "value": "toddler bedtime story about trying new things", "label": "toddler bedtime story about trying new things" },
+          { "value": "bunny bedtime story about being brave", "label": "bunny bedtime story about being brave" },
+          { "value": "afraid to fail bedtime story kids", "label": "afraid to fail bedtime story kids" },
+          { "value": "growth mindset bedtime story for toddlers", "label": "growth mindset bedtime story for toddlers" },
+          { "value": "wobble is part of learning bedtime story", "label": "wobble is part of learning bedtime story" }
+        ]
+      }
+    }
+  ]
+}
