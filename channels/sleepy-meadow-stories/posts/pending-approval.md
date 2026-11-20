@@ -1,5 +1,13 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-20 (scheduled run) — STEP 1 check: "The Bunny Who Was Scared of the Storm" PUBLISHED
+- `gh run list --workflow publish.yml --limit 10`: run `44142087104` (story 06,
+  post-sleepy-meadow-stories-06) completed successfully; `06-sleepy-meadow-payload.result.json`
+  confirms it went live, public: videoId `ivhp2np7PHk` (https://youtu.be/ivhp2np7PHk), published
+  2026-11-19T18:49:43Z. No open "Publish blocked" issues. This also unblocked Forgotten & Found's
+  queued Mary Celeste run (`44581764533`), whose `publish` job started waiting on Katie's review at
+  18:49:57Z the same moment — logged on the F&F side.
+
 ## 2026-11-17 (scheduled run) — "The Bunny Who Was Scared of the Storm" PRODUCED, staged, dispatched for approval
 - STEP 1 (read-only): confirmed nothing new has published since the 11/16 note. Forgotten & Found's
   "Port Royal, Jamaica" run (`43922804382`, dispatched 11/16) is still `waiting` on Katie's GitHub

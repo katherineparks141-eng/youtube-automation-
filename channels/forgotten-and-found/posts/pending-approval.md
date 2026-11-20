@@ -1,5 +1,13 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-20 (scheduled run) — STEP 1 check: Mary Celeste run now actively awaiting Katie's review
+- `gh run list --workflow publish.yml --limit 10` / `gh api .../actions/runs/44581764533/jobs`: the
+  Sleepy Meadow run (`44142087104`) that was blocking this one on the shared `concurrency: publish`
+  group completed successfully 2026-11-19. This run's `prepare` job then ran (success) and its
+  `publish` job entered `waiting` on the GitHub `publish-approval` environment review at 18:49:57Z —
+  no longer just queued, genuinely awaiting Katie's approval now, ~23h. No open "Publish blocked"
+  issues; issue #14 (Peter Rabbit resemblance) remains closed.
+
 ## 2026-11-19 (scheduled run, continued) — "The Mary Celeste: The Ship Found Empty at Sea" PRODUCED, staged, dispatched for approval
 - STEP 2: picked Unsolved & Unexplained (UU) — the channel's largest-weighted pillar (35%) and, after
   Port Royal, the pillar due for its next video. Checked `scripts/`/`posts/`: 01 Bell Witch (haunting),
