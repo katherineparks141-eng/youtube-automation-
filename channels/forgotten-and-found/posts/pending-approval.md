@@ -1,5 +1,12 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-23 (scheduled run) — STEP 1 check: Mary Celeste confirmed PUBLISHED
+- `gh run list --workflow publish.yml --limit 10`: run `44581764533` completed successfully 2026-11-19
+  and `result.json` (committed 2026-11-20) confirms "The Mary Celeste: The Ship Found Empty at Sea" is
+  live public — videoId `pK2saSricOg`, https://youtu.be/pK2saSricOg, published 2026-11-20T17:56:04Z.
+  No open "Publish blocked" issues (`gh api repos/.../issues?state=open` → 0). Today is Monday — F&F's
+  turn; producing the next video.
+
 ## 2026-11-20 (scheduled run) — STEP 1 check: Mary Celeste run now actively awaiting Katie's review
 - `gh run list --workflow publish.yml --limit 10` / `gh api .../actions/runs/44581764533/jobs`: the
   Sleepy Meadow run (`44142087104`) that was blocking this one on the shared `concurrency: publish`

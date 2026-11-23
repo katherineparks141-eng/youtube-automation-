@@ -1,5 +1,11 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-23 (scheduled run) — STEP 1 check: story 07 still awaiting Katie's GitHub approval
+- `gh run list --workflow publish.yml --limit 10`: run `44787449303` ("The Bunny Who Was Afraid to
+  Try") is still `waiting` on the `publish-approval` environment review, ~71h since it was dispatched
+  2026-11-20T17:52:36Z. No open "Publish blocked" issues. Nothing new to stage today — today is
+  Monday, Forgotten & Found's turn.
+
 ## 2026-11-20 (scheduled run, continued) — "The Bunny Who Was Afraid to Try" PRODUCED, staged, dispatched for approval
 - STEP 2: today is Friday — Sleepy Meadow's turn. Checked `scripts/`/`posts/`: stories 1-6 covered
   fear of the dark, racing bedtime thoughts, FOMO, nightmares, worry about a future event, and a
