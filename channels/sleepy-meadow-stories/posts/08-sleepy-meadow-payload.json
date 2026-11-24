@@ -1,0 +1,30 @@
+{
+  "type": "now",
+  "date": "2026-11-24T19:30:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "Pip accidentally knocks over his friend Fern's little tower and is too scared to say sorry. #SleepyMeadowStories Oona the owl teaches him that a sorry is a small, brave gift — not something that makes the bump bigger.\n\nThis video uses AI narration and AI-generated illustrations.\n\n#BedtimeStory #PipTheBunny #SayingSorry #Friendship",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Bunny Who Was Afraid to Say Sorry | A Sleepy Meadow Bedtime Story",
+        "type": "public",
+        "selfDeclaredMadeForKids": "yes",
+        "tags": [
+          { "value": "toddler bedtime story about saying sorry", "label": "toddler bedtime story about saying sorry" },
+          { "value": "bunny bedtime story about apologizing", "label": "bunny bedtime story about apologizing" },
+          { "value": "kids story about friendship and forgiveness", "label": "kids story about friendship and forgiveness" },
+          { "value": "how to say sorry bedtime story for kids", "label": "how to say sorry bedtime story for kids" },
+          { "value": "sleepy meadow stories pip the bunny apology", "label": "sleepy meadow stories pip the bunny apology" }
+        ]
+      }
+    }
+  ]
+}
