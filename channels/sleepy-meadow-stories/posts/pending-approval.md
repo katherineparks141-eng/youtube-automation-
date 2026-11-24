@@ -1,5 +1,55 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-24 (scheduled run, continued) — "The Bunny Who Was Afraid to Say Sorry" PRODUCED, staged, dispatched for approval
+- STEP 2: today is Tuesday — Sleepy Meadow's turn. Checked `scripts/`/`posts/`: stories 1-7 covered
+  fear of the dark, racing bedtime thoughts, FOMO, nightmares, worry about a future event, a sudden
+  loud noise (thunder), and fear of trying a new skill — all distinct Pip pillar themes. Picked a new,
+  distinct theme: the guilty, heavy feeling after accidentally hurting a friend's feelings and being
+  afraid to say sorry, resolved with Oona reframing "sorry" as a small brave gift plus a simple
+  four-word practiced opener, not a sound-counting trick, a pouch, a wobble-reframe, or picturing
+  guardians. New script: `scripts/08-the-bunny-who-was-afraid-to-say-sorry.md`. Used only the
+  post-redesign Pip reference (`MAHaibwGBwg`) for every image featuring Pip; Fern the field mouse is a
+  new simple, soft-style background character, not recurring named cast.
+- Narration via Piper (`en_US-amy-medium`; installed `piper-tts` under `python3.13` since default
+  `python3` is 3.11 — same split as every prior run; voice model copied from the media repo's
+  `voices/`). Ran the module directly via `python3.13 -m piper`. Runtime: 3:46.4 (226.4s).
+- Visuals: 6 scene illustrations + 1 thumbnail via Canva `generate-image`, all using `MAHaibwGBwg` as
+  `imageReferences` for character consistency. Two of the 7 jobs failed server-side
+  (`SERVER_GENERIC`, "Something went wrong") and were retried individually with the same prompt —
+  both succeeded on retry. Verified each image's actual content against its intended beat before
+  building the carrier design (per the standing caution about Canva job/content mismatches). Full-
+  resolution export workaround unchanged from prior runs: disposable 1920x1080 Canva design
+  (`DAHb2u0L0mA`, resized from a square `create-design` default via `resize-design`), each image
+  inserted full-bleed on its own page via `insert_fill`, page-preview thumbnails (600x338) captured
+  directly from each edit response (not via `export-design`'s `export-download.canva.com` URL, which
+  remains blocked by egress policy — confirmed again when its URL appeared in this run's responses
+  but was never fetched). Thumbnail kept calm/non-exaggerated per the channel rule (Pip sitting calmly
+  beside the rebuilt tower, content smile, no dramatic pose).
+- Assembled with `pipeline/assemble_video.sh`: 1920x1080, 16MB, well under the 95MB staging limit.
+  Spot-checked frames at 15s, 120s, and 220s — clean upscale, no artifacts, narration/visual beats in
+  sync with the script's timing notes.
+- Payload (`posts/08-sleepy-meadow-payload.json`): `type: "public"`, `selfDeclaredMadeForKids: "yes"`
+  (hard rule 2), AI-disclosure line present, 5 hashtags (`#SleepyMeadowStories` within the first 100
+  characters), combination not identical to any of stories 1-7's sets. Validated clean via
+  `python3 -m automation.publish check` (no RULE VIOLATIONS). Approval hash:
+  `738e28b7f664602ea0fb2ef1b86542b55c8d84af06690ba2be52a31dee4a4c0b`.
+- Note: the dedicated thumbnail image was generated per the production pipeline but, as flagged in a
+  prior run (2026-11-10), the YouTube publisher (`automation/youtube.py`) still has no thumbnail-
+  upload step — only `video.mp4` is staged/consumed. Not something to route around; flagging again for
+  whoever picks up that gap.
+- **Staged**: video committed as `staged/post-sleepy-meadow-stories-08/video.mp4` in the private media
+  repo (commit `fc6e4a9`). Payload + script committed to `youtube-automation-` main (commit `f1669d0`).
+- **Dispatched**: `gh workflow run publish.yml --ref main -f post=channels/sleepy-meadow-stories/posts/08-sleepy-meadow-payload.json -f tag=post-sleepy-meadow-stories-08` →
+  run https://github.com/katherineparks141-eng/youtube-automation-/actions/runs/45458685207.
+  This run has no jobs started yet (`pending`) behind run `44787449303` (story 07) because
+  `publish.yml` declares one shared `concurrency: publish` group and that run is still `waiting` on
+  Katie's review — same expected queueing behavior as every prior run with two runs in flight, not a
+  new fault. It will start its own `prepare` job once that run is approved, rejected, or cancelled.
+  **AWAITING KATIE'S APPROVAL on GitHub** (both this run and the still-pending `44787449303`, in
+  order) — nothing will go live until she reviews and approves them.
+- Dashboard to-do `r20261124-youtube-production-01` created on
+  https://claude.ai/artifact/KPm8DRRk9RrVT9JH3YtcQL pointing at the run URL above.
+
 ## 2026-11-24 (scheduled run) — STEP 1 check: story 07 still awaiting Katie's GitHub approval
 - `gh run list --workflow publish.yml --limit 10`: run `44787449303` ("The Bunny Who Was Afraid to
   Try") is still `waiting` on the `publish-approval` environment review, ~96h (4 days) since it was
