@@ -1,5 +1,12 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-24 (scheduled run) — STEP 1 check: story 07 still awaiting Katie's GitHub approval
+- `gh run list --workflow publish.yml --limit 10`: run `44787449303` ("The Bunny Who Was Afraid to
+  Try") is still `waiting` on the `publish-approval` environment review, ~96h (4 days) since it was
+  dispatched 2026-11-20T17:52:36Z. No open "Publish blocked" issues (`gh api
+  repos/.../issues?state=open` returned none). No new approvals or publishes since the 11/23 check.
+  Today is Tuesday — Sleepy Meadow's turn; producing the next video.
+
 ## 2026-11-23 (scheduled run) — STEP 1 check: story 07 still awaiting Katie's GitHub approval
 - `gh run list --workflow publish.yml --limit 10`: run `44787449303` ("The Bunny Who Was Afraid to
   Try") is still `waiting` on the `publish-approval` environment review, ~71h since it was dispatched
