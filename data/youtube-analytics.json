@@ -1,9 +1,9 @@
 {
-  "lastRefreshed": "2026-11-24T20:57:54+00:00",
+  "lastRefreshed": "2026-11-25T20:20:32+00:00",
   "channel": {
     "subscribers": 1,
-    "totalViews": 4261,
-    "videoCount": 12
+    "totalViews": 4262,
+    "videoCount": 14
   },
   "perVideo": [
     {
@@ -55,6 +55,24 @@
       "title": "The Bunny Who Was Scared of the Storm | A Sleepy Meadow Bedtime Story",
       "channel": "sleepy-meadow-stories",
       "videoId": "ivhp2np7PHk",
+      "privacy": "public",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "title": "The Bunny Who Was Afraid to Try | A Sleepy Meadow Bedtime Story",
+      "channel": "sleepy-meadow-stories",
+      "videoId": "5g8uHlEoNdU",
+      "privacy": "public",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "title": "The Bunny Who Was Afraid to Say Sorry | A Sleepy Meadow Bedtime Story",
+      "channel": "sleepy-meadow-stories",
+      "videoId": "mU3b2K33XSk",
       "privacy": "public",
       "views": 0,
       "likes": 0,
