@@ -1,0 +1,33 @@
+{
+  "type": "now",
+  "date": "2026-11-26T19:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "Nine hikers died in 1959 after fleeing their own tent into sub-zero cold. #ForgottenAndFound Investigators reopened the case in 2019, and the leading theory they now favor still doesn't explain every piece of physical evidence the original search team found.\n\nThis video uses AI narration and AI-generated illustrations.\n\nSources: Smithsonian Magazine; History.com — \"The Mysterious Deaths of the Dyatlov Pass Hikers\"; Mental Floss; All That's Interesting; HowStuffWorks — \"The Dyatlov Pass Incident: Could an Avalanche Have Killed the Hikers?\" (reporting the 2019–2021 Russian prosecutorial re-investigation and the independent snow-slab modeling study).\n\n#ForgottenAndFound #DyatlovPass #ColdCase #RussianHistory #UnexplainedDeaths",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Dyatlov Pass Incident: Nine Hikers, One Unexplained Night",
+        "type": "public",
+        "selfDeclaredMadeForKids": "no",
+        "tags": [
+          { "value": "dyatlov pass incident explained", "label": "dyatlov pass incident explained" },
+          { "value": "dyatlov pass true story", "label": "dyatlov pass true story" },
+          { "value": "unsolved mystery documentary", "label": "unsolved mystery documentary" },
+          { "value": "russian mountain mystery", "label": "russian mountain mystery" },
+          { "value": "ural mountains 1959", "label": "ural mountains 1959" },
+          { "value": "igor dyatlov hikers", "label": "igor dyatlov hikers" },
+          { "value": "dyatlov pass theories", "label": "dyatlov pass theories" },
+          { "value": "forgotten and found unsolved", "label": "forgotten and found unsolved" }
+        ]
+      }
+    }
+  ]
+}
