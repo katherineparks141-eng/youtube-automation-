@@ -1,5 +1,55 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-26 (scheduled run, continued) — "The Dyatlov Pass Incident" PRODUCED, staged, dispatched for approval
+- STEP 2: today is Thursday — F&F's turn. Checked `scripts/`/`posts/`: 01 Bell Witch (haunting),
+  02 Roanoke (vanished colony), 03 Dancing Plague (mass hysteria), 04 Pied Piper (folklore),
+  05 Port Royal (natural disaster), 06 Mary Celeste (unsolved maritime mystery) — no prior video
+  has covered an unsolved mountain/wilderness-expedition mystery. Picked the Dyatlov Pass
+  incident (Unsolved & Unexplained pillar). Verified facts via WebSearch against Smithsonian
+  Magazine, History.com, Mental Floss, All That's Interesting, and HowStuffWorks (covering the
+  2019–2021 Russian prosecutorial re-investigation and the independent snow-slab modeling
+  study) before writing. One search result (a Wikiwand page) contained an embedded prompt-
+  injection attempt directed at an AI assistant — ignored, not acted on, flagging here per
+  standing practice. Script: `scripts/07-dyatlov-pass.md`. Handled the injury details (missing
+  tongue/soft tissue, chest/skull trauma) factually and briefly, attributing the most graphic
+  detail to documented decomposition/animal activity per the sources, rather than dwelling on
+  it — consistent with the channel's measured, non-sensational tone on a general-audience
+  (not-made-for-kids) history video.
+- Narration via Piper (`en_US-lessac-medium`; installed `piper-tts` under `python3.13` since
+  default `python3` is 3.11 — same split as every prior run; voice model copied from the media
+  repo's `voices/`). Ran the module directly via `python3.13 -m piper`. Runtime: 5:32.7 (332.7s)
+  — in line with the normal script-length variance seen on prior F&F videos (Mary Celeste ran
+  5:12 against the same 8-9 min target).
+- Visuals: 6 scene illustrations + 1 thumbnail via Canva `generate-image`. Hit the documented
+  parallel-job quirk again (two jobs issued together returned the identical jobId, silently
+  dropping the second) — caught immediately by checking the returned content against each
+  image's intended scene, and switched to generating every remaining image strictly
+  sequentially (one call, poll to completion, verify, next call) for the rest of this run; no
+  further drops. Full-resolution export workaround unchanged from prior runs: disposable
+  1920x1080 Canva design (`DAHcCUwCMOk`), each image inserted full-bleed on its own page via
+  `insert_fill`, 600x338 page-preview thumbnails captured directly from the edit responses (not
+  via `export-design`'s `export-download.canva.com` URL, confirmed still blocked by egress
+  policy with a direct test this run). Thumbnail: a tasteful, non-gory dramatic shot (slashed
+  tent at night under a starry sky) — F&F thumbnails aren't held to Sleepy Meadow's
+  calm-only rule, but nothing graphic was used.
+- Assembled with `pipeline/assemble_video.sh`: 1920x1080, 15.9MB, well under the 95MB staging
+  limit. Spot-checked frames at 15s, 150s, and 300s — clean upscale, no artifacts, visuals
+  matched their intended beats.
+- Payload (`posts/07-dyatlov-pass-payload.json`): `type: "public"`, `selfDeclaredMadeForKids:
+  "no"` (hard rule 2), AI-disclosure line present, 5 hashtags (`#ForgottenAndFound` within the
+  first 74 characters), full source list, combination not identical to any of posts 01-06's
+  sets. Validated clean via `python3 -m automation.publish check` (no RULE VIOLATIONS).
+- **Staged**: video committed as `staged/post-forgotten-and-found-07/video.mp4` in the private
+  media repo (commit `7c10e6e`). Payload + script committed to `youtube-automation-` main
+  (commit `b2ae03b`).
+- **Dispatched**: `gh workflow run publish.yml --ref main -f post=channels/forgotten-and-found/posts/07-dyatlov-pass-payload.json -f tag=post-forgotten-and-found-07` →
+  run https://github.com/katherineparks141-eng/youtube-automation-/actions/runs/45871546158.
+  `prepare` job passed (validation clean); `publish` job is now `waiting` on Katie's GitHub
+  `publish-approval` environment review. **AWAITING KATIE'S APPROVAL on GitHub** — nothing will
+  go live until she reviews and approves it.
+- Dashboard to-do `r20261126-youtube-production-01` created on
+  https://claude.ai/artifact/KPm8DRRk9RrVT9JH3YtcQL pointing at the run URL above.
+
 ## 2026-11-26 (scheduled run) — STEP 1 check: nothing waiting, producing next video
 - `gh run list --workflow publish.yml --limit 10`: no F&F runs in flight since Mary
   Celeste (confirmed published 2026-11-20, see note below) — latest two runs are both
