@@ -1,5 +1,16 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-26 (scheduled run) — STEP 1 check: stories 07 and 08 both confirmed PUBLISHED
+- `gh run list --workflow publish.yml --limit 10`: both runs that were "awaiting Katie's
+  approval" as of the 11/24 note below are now `completed success` — `44787449303` (story
+  07, "The Bunny Who Was Afraid to Try") and `45458685207` (story 08, "The Bunny Who Was
+  Afraid to Say Sorry"). `channels/sleepy-meadow-stories/posts/07-sleepy-meadow-payload.result.json`
+  and `08-sleepy-meadow-payload.result.json` confirm both live public:
+  https://youtu.be/5g8uHlEoNdU (published 2026-11-24T23:06:40Z) and
+  https://youtu.be/mU3b2K33XSk (published 2026-11-24T23:07:47Z). No open "Publish blocked"
+  issues (`gh api repos/.../issues?state=open` → 0). Today is Thursday — Forgotten & Found's
+  turn, not Sleepy Meadow's; no new Sleepy Meadow production this run.
+
 ## 2026-11-24 (scheduled run, continued) — "The Bunny Who Was Afraid to Say Sorry" PRODUCED, staged, dispatched for approval
 - STEP 2: today is Tuesday — Sleepy Meadow's turn. Checked `scripts/`/`posts/`: stories 1-7 covered
   fear of the dark, racing bedtime thoughts, FOMO, nightmares, worry about a future event, a sudden

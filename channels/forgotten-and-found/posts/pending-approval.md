@@ -1,5 +1,13 @@
 # Forgotten & Found — pending approval log
 
+## 2026-11-26 (scheduled run) — STEP 1 check: nothing waiting, producing next video
+- `gh run list --workflow publish.yml --limit 10`: no F&F runs in flight since Mary
+  Celeste (confirmed published 2026-11-20, see note below) — latest two runs are both
+  Sleepy Meadow stories 07/08, both `completed success` and confirmed live (see that
+  channel's pending-approval.md). No open "Publish blocked" issues (`gh api
+  repos/.../issues?state=open` → 0). Today is Thursday — F&F's turn; producing the next
+  video.
+
 ## 2026-11-23 (scheduled run) — STEP 1 check: Mary Celeste confirmed PUBLISHED
 - `gh run list --workflow publish.yml --limit 10`: run `44581764533` completed successfully 2026-11-19
   and `result.json` (committed 2026-11-20) confirms "The Mary Celeste: The Ship Found Empty at Sea" is
