@@ -1,9 +1,9 @@
 {
-  "lastRefreshed": "2026-11-26T19:56:58+00:00",
+  "lastRefreshed": "2026-11-27T19:46:13+00:00",
   "channel": {
     "subscribers": 1,
-    "totalViews": 4262,
-    "videoCount": 14
+    "totalViews": 4263,
+    "videoCount": 15
   },
   "perVideo": [
     {
@@ -29,7 +29,16 @@
       "channel": "forgotten-and-found",
       "videoId": "pK2saSricOg",
       "privacy": "public",
-      "views": 5,
+      "views": 6,
+      "likes": 0,
+      "comments": 0
+    },
+    {
+      "title": "The Dyatlov Pass Incident: Nine Hikers, One Unexplained Night",
+      "channel": "forgotten-and-found",
+      "videoId": "b_X1qEp0_fI",
+      "privacy": "public",
+      "views": 0,
       "likes": 0,
       "comments": 0
     },
