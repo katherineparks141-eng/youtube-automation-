@@ -1,0 +1,30 @@
+{
+  "type": "now",
+  "date": "2026-11-27T19:00:00.000Z",
+  "shortLink": false,
+  "tags": [],
+  "posts": [
+    {
+      "integration": { "id": "cmvy6plen09q6nk0750rg2fha" },
+      "value": [
+        {
+          "content": "Pip's scarf gets stuck on a bramble bush, and he's too embarrassed to call for help. #SleepyMeadowStories Oona the owl teaches him that asking for help isn't the small thing to do — it's the wise thing.\n\nThis video uses AI narration and AI-generated illustrations.\n\n#BedtimeStory #PipTheBunny #AskForHelp #KidsStories",
+          "image": []
+        }
+      ],
+      "settings": {
+        "__type": "youtube",
+        "title": "The Bunny Who Was Afraid to Ask for Help | A Sleepy Meadow Bedtime Story",
+        "type": "public",
+        "selfDeclaredMadeForKids": "yes",
+        "tags": [
+          { "value": "toddler bedtime story about asking for help", "label": "toddler bedtime story about asking for help" },
+          { "value": "bunny bedtime story about being brave", "label": "bunny bedtime story about being brave" },
+          { "value": "kids story about asking for help is ok", "label": "kids story about asking for help is ok" },
+          { "value": "calming bedtime story for toddlers preschoolers", "label": "calming bedtime story for toddlers preschoolers" },
+          { "value": "sleepy meadow stories pip the bunny stuck scarf", "label": "sleepy meadow stories pip the bunny stuck scarf" }
+        ]
+      }
+    }
+  ]
+}
