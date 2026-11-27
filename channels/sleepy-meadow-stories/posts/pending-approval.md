@@ -1,5 +1,61 @@
 # Sleepy Meadow Stories — pending approval log
 
+## 2026-11-27 (scheduled run) — "The Bunny Who Was Afraid to Ask for Help" PRODUCED, staged, dispatched for approval
+- STEP 1: F&F's "The Dyatlov Pass Incident" publish run (45871546158, dispatched 11/26) is still
+  `waiting` on Katie's GitHub review, ~24h now. No open "Publish blocked" issues. Nothing new to log
+  since the 11/26 note (no runs finished).
+- STEP 1.5: Analytics refreshed from `data/youtube-analytics.json` (2026-11-26T19:56:58Z pull):
+  numbers unchanged from 11/25 (1 subscriber, 4,262 views, 14 videoCount, same 8-video perVideo
+  list). Dashboard `youtube-analytics` doc and the `youtube` project card both updated.
+- STEP 2: today is Friday — Sleepy Meadow's turn. Checked `scripts/`/`posts/`: stories 1-8 covered
+  fear of the dark, racing bedtime thoughts, FOMO, nightmares, future-worry, a thunderstorm, fear of
+  trying a new skill, and guilt/fear of apologizing — all distinct Pip pillar themes. Picked a new,
+  distinct theme: embarrassment and pride getting in the way of asking for help when stuck, resolved
+  via Oona reframing asking for help as "the meadow growing, not you shrinking" plus a simple
+  practiced call ("I'm stuck — will you help me?"), not a sound-counting trick, a reframe about
+  wobbling, a four-word apology opener, or a stone-carrying metaphor (those belong to other stories).
+  New script: `scripts/09-the-bunny-who-was-afraid-to-ask-for-help.md`. Used only the post-redesign
+  Pip reference (`MAHaibwGBwg`) for every image featuring Pip; the bramble bush is a new one-off
+  prop, soft-edged and non-scary, not recurring.
+- Narration via Piper (`en_US-amy-medium`; installed `piper-tts` under `python3.13` since default
+  `python3` is 3.11 — same split as every prior run; voice model copied from the media repo's
+  `voices/`). Ran the module directly via `python3.13 -m piper`. Runtime: 3:35.2 (215.2s).
+- Visuals: 6 scene illustrations + 1 thumbnail via Canva `generate-image`, all using `MAHaibwGBwg` as
+  `imageReferences` for character consistency; all 7 jobs succeeded on the first try this run.
+  Verified each image's actual content against its intended beat before building the carrier design
+  (per the standing caution about Canva job/content mismatches — confirmed two jobs issued
+  sequentially can still return near-identical-looking jobId strings with different embedded
+  payloads; checked the decoded content, not just the string, before trusting each one). Full-
+  resolution export workaround unchanged from prior runs: disposable 1920x1080 Canva design
+  (`DAHcIbo4rlY`, resized from a square `create-design` default via `resize-design`), each image
+  inserted full-bleed on its own page via `insert_fill`, page-preview thumbnails (600x338) captured
+  directly from each edit response (not via `export-design`'s `export-download.canva.com` URL, which
+  remains blocked by egress policy — confirmed again this run, 403 on a direct fetch attempt).
+  Thumbnail kept calm/non-exaggerated per the channel rule (Pip sitting calmly beside the bramble,
+  scarf loose, gentle smile, no dramatic pose).
+- Assembled with `pipeline/assemble_video.sh`: 1920x1080, 16.7MB, well under the 95MB staging limit.
+  Spot-checked frames at 10s, 100s, and 200s — clean upscale, no artifacts, narration/visual beats in
+  sync with the script's timing notes.
+- Payload (`posts/09-sleepy-meadow-payload.json`): `type: "public"`, `selfDeclaredMadeForKids: "yes"`
+  (hard rule 2), AI-disclosure line present, 5 hashtags (`#SleepyMeadowStories` within the first 100
+  characters), combination not identical to any of stories 1-8's sets. Validated clean via
+  `python3 -m automation.publish check` (no RULE VIOLATIONS). Approval hash:
+  `b0afcae6e8b93502d23fdf805ec0fb78ec9c2e663e57dbbf6291acb88028c4fe`.
+- Note: the dedicated thumbnail image was generated per the production pipeline but, as flagged in
+  prior runs, the YouTube publisher (`automation/youtube.py`) still has no thumbnail-upload step —
+  only `video.mp4` is staged/consumed. Not something to route around; flagging again for whoever
+  picks up that gap.
+- **Staged**: video committed as `staged/post-sleepy-meadow-stories-09/video.mp4` in the private media
+  repo (commit `2cfb625`). Payload + script committed to `youtube-automation-` main (commit `617a022`).
+- **Dispatched**: `gh workflow run publish.yml --ref main -f post=channels/sleepy-meadow-stories/posts/09-sleepy-meadow-payload.json -f tag=post-sleepy-meadow-stories-09` →
+  run https://github.com/katherineparks141-eng/youtube-automation-/actions/runs/46044934833.
+  This run has no jobs started yet (`pending`) behind run `45871546158` (F&F's Dyatlov Pass) because
+  `publish.yml` declares one shared `concurrency: publish` group and that run is still `waiting` on
+  Katie's review — same expected queueing behavior as every prior run with two runs in flight, not a
+  new fault. It will start its own `prepare` job once that run is approved, rejected, or cancelled.
+  **AWAITING KATIE'S APPROVAL on GitHub** (both this run and the still-pending `45871546158`, in
+  order) — nothing will go live until she reviews and approves them.
+
 ## 2026-11-26 (scheduled run) — STEP 1 check: stories 07 and 08 both confirmed PUBLISHED
 - `gh run list --workflow publish.yml --limit 10`: both runs that were "awaiting Katie's
   approval" as of the 11/24 note below are now `completed success` — `44787449303` (story
